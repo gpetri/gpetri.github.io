@@ -1,0 +1,32 @@
+#
+# fichier modèle de redirection du site individuel
+#
+#------------------------------------
+# il faut remplacer les variables par les valeurs appropriées :
+#  - Prenom.Nom
+#  - ancien_emplacement_absolu../..homepage
+#
+# puis déplacer ce fichier dans l'ancien répertoire du site individuel
+# en le renommant .htaccess (droits sur le fichier : 644)
+#
+#------------------------------------
+# Syntaxe :
+# Redirect permanent Chemin_vers_ancien_site URL_du_nouveau_site
+#
+# Chemin_vers_ancien_site = partie à droite de l'URL
+#  - http://www-sop.inria.fr/[Chemin_vers_ancien_site]
+#
+#------------------------------------
+# Exemple :
+# URL de l'ancien site individuel = 
+#          http://www-sop.inria.fr/semir/personnel/Laurent.Mirtain
+# URL du nouveau site individuel =
+#          http://www-sop.inria.fr/members/Laurent.Mirtain
+#
+# alors la règle à mettre dans le fichier .htaccess est =
+# Redirect permanent /semir/personnel/Laurent.Mirtain/ http://www-sop.inria.fr/members/Laurent.Mirtain/
+#------------------------------------
+
+# règle à modifier :
+Redirect permanent /ancien_emplacement_absolu/homepage/ http://www-sop.inria.fr/members/Prenom.Nom/	
+

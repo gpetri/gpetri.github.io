@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="generator" content="hevea 2.00">
+<style type="text/css">
+.li-itemize{margin:1ex 0ex;}
+.li-enumerate{margin:1ex 0ex;}
+.dd-description{margin:0ex 0ex 1ex 4ex;}
+.dt-description{margin:0ex;}
+.toc{list-style:none;}
+.footnotetext{margin:0ex; padding 0ex;}
+div.footnotetext P{margin:0px; text-indent:1em;}
+.thefootnotes{text-align:left;margin:0ex;}
+.dt-thefootnotes{margin:0em;}
+.dd-thefootnotes{margin:0em 0em 0em 2em;}
+.footnoterule{margin:1em auto 1em 0px;width:50%;}
+.caption{padding-left:2ex; padding-right:2ex; margin-left:auto; margin-right:auto}
+.title{margin:2ex auto;text-align:center}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+.flushleft{text-align:left;margin-left:0ex;margin-right:auto;}
+.flushright{text-align:right;margin-left:auto;margin-right:0ex;}
+div table{margin-left:inherit;margin-right:inherit;margin-bottom:2px;margin-top:2px}
+td table{margin:auto;}
+table{border-collapse:collapse;}
+td{padding:0;}
+.cellpadding0 tr td{padding:0;}
+.cellpadding1 tr td{padding:1px;}
+pre{text-align:left;margin-left:0ex;margin-right:auto;}
+blockquote{margin-left:4ex;margin-right:4ex;text-align:left;}
+td p{margin:0px;}
+.boxed{border:1px solid black}
+.textboxed{border:1px solid black}
+.vbar{border:none;width:2px;background-color:black;}
+.hbar{border:none;height:2px;width:100%;background-color:black;}
+.hfill{border:none;height:1px;width:200%;background-color:black;}
+.vdisplay{border-collapse:separate;border-spacing:2px;width:auto; empty-cells:show; border:2px solid red;}
+.vdcell{white-space:nowrap;padding:0px border:2px solid green;}
+.display{border-collapse:separate;border-spacing:2px;width:auto; border:none;}
+.dcell{white-space:nowrap;padding:0px border:none;}
+.dcenter{margin:0ex auto;}
+.vdcenter{border:solid #FF8000 2px; margin:0ex auto;}
+.minipage{text-align:left; margin-left:0em; margin-right:auto;}
+.marginpar{border:solid thin black; width:20%; text-align:left;}
+.marginparleft{float:left; margin-left:0ex; margin-right:1ex;}
+.marginparright{float:right; margin-left:1ex; margin-right:0ex;}
+.theorem{text-align:left;margin:1ex auto 1ex 0ex;}
+.part{margin:2ex auto;text-align:center}
+</style>
+<title>syllabus</title>
+</head>
+<body >
+<!--HEVEA command line is: hevea syllabus.tex -->
+<!--CUT STYLE article--><!--CUT DEF section 1 --><!--TOC section id=sec1 <U>CS 456: Programming Languages</U>-->
+<h2 id="sec1" class="section"><U>CS 456: Programming Languages</U></h2><!--SEC END --><!--TOC section id=sec2 General Information-->
+<h2 id="sec2" class="section">General Information</h2><!--SEC END --><div class="minipage">
+<U><span style="font-weight:bold">Lecturer</span></U><br>
+
+Gustavo Petri<br>
+
+Office: 3154S LWSN<br>
+
+<span style="font-family:monospace">gpetri@purdue.edu</span><br>
+<p><U><span style="font-weight:bold">Classes</span></U><br>
+
+Day: Monday, Wednesday and Friday<br>
+
+Time: 9:30 am - 10:20 pm<br>
+
+Location: LWSN 1106<br>
+</p><p><U><span style="font-weight:bold">Office Hours:</span></U><br>
+
+Mo, We 2-3 PM. By appointment.
+</p></div><!--TOC section id=sec3 Course Overview-->
+<h2 id="sec3" class="section">Course Overview</h2><!--SEC END --><p>This course is based on the <em>draft</em> book &#X201C;Programming Languages:
+Build, Prove, and Compare&#X201D; by Normal Ramsey. A fundamental principle
+of the book and the course, is to present programming languages
+concepts by firstly providing a small language that incorporates each
+new fundamental concept, and secondly presenting an interpreter with
+which one can experiment with the new concept. Experimenting with
+interpreters implies both, writing programs which we run using the
+interpreter, as well as modifying the interpreter itself to add or
+modify features of the language. 
+In doing so, the student will learn about the fundamental tools for
+programming language design and formalization, namely: syntax,
+semantics and the implementation of simple interpreters; as well as
+some of the fundamental concepts of programming languages, including:
+higher-order functions, types, objects and automatic memory management
+among others.</p><p>This course will <em>not</em> be a survey of existing languages <em>nor</em> an
+extensive exploration of all language features. We will concentrate of
+some of the most important features, which will be gradually
+introduced through micro-languages, allowing the student to appreciate
+and internalize their importance by using and modifying these
+features, and comparing the different languages.</p><p>Some of the questions we will address in this course are: </p><ol class="enumerate" type=1><li class="li-enumerate">
+Which are some of the mainstream models of computation, and
+which are the language features that enable them? To answer this
+we will study the fundamental principles behind <em>imperative</em>,
+<em>functional</em>, <em>object oriented</em>, and time permitting
+<em>logical</em> programming languages. </li><li class="li-enumerate">What is the meaning of a given programming language feature,
+and how is it formalized and implemented? What is the meaning of a
+program written in a certain programming language? To answer this
+question we will use operational semantics, a fundamental tool in
+the design and implementation of programming languages. </li><li class="li-enumerate">What are some important properties of programs and programming
+languages, and how can we mathematically enforce them and prove
+them? While this course emphasis is on the design and
+implementation of some of the fundamental concepts in programming
+languages, we will in some cases consider important desirable
+properties of languages, and how can we mathematically guarantee
+them. </li><li class="li-enumerate">How can we extend a certain programming languages to include
+new features? How can we compare different programming languages
+with different feature sets? We will present several languages,
+and interpreters, and we will consider programming and extending
+the language across these languages to be able to compare them,
+and evaluate their features. </li><li class="li-enumerate">Finally, an expectation of this course is that by being exposed
+to different language features, paradigms, disciplines, and
+their implementations, students will better understand their
+fundamental tool, and hence become better programmers. 
+</li></ol><p>The course will be roughly divided in five sections plus an optional
+one: </p><ol class="enumerate" type=1><li class="li-enumerate">
+Imperative Programming: This part of the course will present a
+tiny imperative programming language. This language will both be
+used to introduce imperative programming itself, and the tools
+that will be used throughout the course to present the notions of
+programming languages, namely: abstract syntax, operational
+semantics, and how to generate an interpreter from an operational
+semantics. </li><li class="li-enumerate">Functional Programming: This is a large part of the course in
+which we will study the fundamental notions that make functional
+programming practical and attractive. These include higher-order
+functions, recursion and lists.</li><li class="li-enumerate">Automatic Memory Management: In this part we will consider the
+implementation of a garbage collector of the previous part. </li><li class="li-enumerate">Types: In this part of the course we will introduce the
+unifying notion of types, and how it manifests in different
+languages of interest. We will see how types can make programs
+safer, and more elegant. </li><li class="li-enumerate">Object Oriented Programming: We will consider the notions of
+information hiding and abstraction, which are paramount to the
+scalability and maintainability of large software systems. </li><li class="li-enumerate">Logical Programming (optional): This more arcane programming
+model is based around the notions of logics and provability. While less
+popular than the topics considered before, it has a strong impact
+in the area of mechanized mathematics. 
+</li></ol><p>For each of these parts we will present one or more incarnations
+of the concepts considered in a micro language, and we will consider
+programming with such micro languages, as well as extensions to these. </p><!--TOC section id=sec4 Prerequisites-->
+<h2 id="sec4" class="section">Prerequisites</h2><!--SEC END --><p>It is assumed that students taking this class would have had some
+exposure in compiler construction (such as CS 352) and C
+programming. While functional programming is not a requirement,
+students not familiar with functional programming are encouraged to
+study functional programming from the beginning of the course. Some
+resources are available at the end of this note. </p><!--TOC section id=sec5 Programming Assignments-->
+<h2 id="sec5" class="section">Programming Assignments</h2><!--SEC END --><p>The mantra of this course is: <em>learn by doing</em>. There will be
+assignments given every week. Many assignments will be taken from the
+book exercises, and it will envolve using and extending the
+interpreters presented in class. These assignments will be individual,
+but collaboration is encouraged. </p><!--TOC section id=sec6 Project-->
+<h2 id="sec6" class="section">Project</h2><!--SEC END --><p>There will be a semester-long project that will involve extending one
+of the languages considered in the course with a feature not
+introduced in the course, or writing a micro-version of a language
+not covered in the course. The details of this project assignment will
+be announced half-way through the semester.</p><!--TOC section id=sec7 Grading-->
+<h2 id="sec7" class="section">Grading</h2><!--SEC END --><p>
+Grading for this class will be based as follows:<br>
+
+</p><div class="center">
+<table border=1  style="border-spacing:0;" class="cellpadding1"><tr><td style="text-align:center;border:solid 1px;white-space:nowrap" >
+Programming Assignments</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >50% </td></tr>
+<tr><td style="text-align:center;border:solid 1px;white-space:nowrap" >
+Midterm &amp; Final</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >30%</td></tr>
+<tr><td style="text-align:center;border:solid 1px;white-space:nowrap" >
+Project</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >20%</td></tr>
+</table>
+</div><!--TOC section id=sec8 Texts-->
+<h2 id="sec8" class="section">Texts</h2><!--SEC END --><p>The course is based on the draft book:
+</p><ul class="itemize"><li class="li-itemize">
+<span style="font-weight:bold">Programming Languages:
+Build, Prove, and Compare</span>, Normal Ramsey.<br>
+
+(see: <a href="http://www.cs.tufts.edu/~nr/build-prove-compare/"><span style="font-family:monospace">http://www.cs.tufts.edu/~nr/build-prove-compare/</span></a>).<p>A digital copy of the book will be distributed for the students, who
+are required not to redistribute this draft. 
+</p></li></ul><p>Some supplemental material:
+</p><ul class="itemize"><li class="li-itemize">
+<span style="font-weight:bold">Learn You a Haskell for a Great Good! A Beginners Guide</span>,
+Miran Lipova&#X10D;a, No Starch Press, 2011. 
+(see: <a href="http://learnyouahaskell.com/"><span style="font-family:monospace">http://learnyouahaskell.com/</span></a>).</li><li class="li-itemize"><span style="font-weight:bold">Programming in Standard ML</span>, Robert Harper, Carnegie Mellon
+University,
+2011. (<a href="http://www.cs.cmu.edu/~rwh/smlbook/book.pdf"><span style="font-family:monospace">http://www.cs.cmu.edu/~rwh/smlbook/book.pdf</span></a>). </li><li class="li-itemize"><span style="font-weight:bold">How to Design Programs. An Introduction to Programming and
+Computing</span>, Matthias Felleisen, Robert B. Findler, Matthew Flatt,
+Shriram Krishnamurthi, The MIT Press 2003. (<a href="http://htdp.org/"><span style="font-family:monospace">http://htdp.org/</span></a>). </li><li class="li-itemize"><span style="font-weight:bold">Theories of Programming Languages</span>, John C. Reynolds,
+Cambridge University Press, 1998. </li><li class="li-itemize"><span style="font-weight:bold">Concepts in Programming Languages</span>, John C. Mitchell, 
+Cambridge University Press, 2002.</li><li class="li-itemize"><span style="font-weight:bold">Essentials of Programming Languages</span>, Daniel Frideman,
+Mitchell Wand, and Christopher Haynes, MIT Press 2001.</li><li class="li-itemize"><span style="font-weight:bold">Types and Programming Languages</span>, Benjamin C. Pierce, The
+MIT Press 2002.
+</li></ul><!--TOC section id=sec9 Web Pages and Forums-->
+<h2 id="sec9" class="section">Web Pages and Forums</h2><!--SEC END --><p>The course will leverage piazza (<a href="http://piazza.com"><span style="font-family:monospace">http://piazza.com</span></a>), an interactive
+Q&amp;A newsgroup messaging system that allows students and instructors to
+post questions (and answers) to problems and issues related to the course.</p><p>Copies of the lectures and handouts will be available through the course
+piazza: <a href="https://piazza.com/purdue/fall2014/cs456/home"><span style="font-family:monospace">https://piazza.com/purdue/fall2014/cs456/home</span></a></p><!--TOC section id=sec10 Tentative Syllabus-->
+<h2 id="sec10" class="section">Tentative Syllabus</h2><!--SEC END --><p>The course will roughly follow the breakdown given below. </p><div class="center">
+<table border=1  style="border-spacing:0;" class="cellpadding1"><tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+<em>Subject</em></td><td style="text-align:center;border:solid 1px;white-space:nowrap" ><em>Specific Topics</em> </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+Imperative Programming</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Introduction to <em>Impcore</em> </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+(Chapter 2, roughly 1 week)</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Abstract Syntax </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Inference rules</td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Operational Semantics </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Impcore Interpreter </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Impcore Theory and Metatheory </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+Functional Programming</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Introduction to &#XB5;Scheme</td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+(Chapter 3, roughly 3 weeks)</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >S-expressions </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Higher-order programming </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Continuation Passing Style </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Operational Semantics </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >&#XB5;Scheme interpreter</td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+Garbage Collection</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Managed &#XB5;Scheme</td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+(Chapter 4, roughly 1 week)</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Mark and Sweep Collector</td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Copying Collector</td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+Types</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Typed Impcore </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+(Chapters 6-8, roughly 4 weeks)</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Polymorphism (Typed &#XB5;Scheme)</td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Type Inference (Typed &#XB5;ML)</td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+Object Oriented Programming</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Syntax and Semantics of CLU </td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+(Chapters 9-10, roughly 2 weeks)</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Object Oriented Typing</td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Interpreters</td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+Logic Programming</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Introduction of &#XB5;Prolog</td></tr>
+<tr><td style="text-align:left;border:solid 1px;white-space:nowrap" >
+(Chapter 11, optional)</td><td style="text-align:center;border:solid 1px;white-space:nowrap" >Implementation</td></tr>
+</table>
+</div><!--CUT END -->
+<!--HTMLFOOT-->
+<!--ENDHTML-->
+<!--FOOTER-->
+<hr style="height:2"><blockquote class="quote"><em>This document was translated from L<sup>A</sup>T<sub>E</sub>X by
+</em><a href="http://hevea.inria.fr/index.html"><em>H</em><em><span style="font-size:small"><sup>E</sup></span></em><em>V</em><em><span style="font-size:small"><sup>E</sup></span></em><em>A</em></a><em>.</em></blockquote></body>
+</html>

@@ -1,0 +1,41 @@
+<html> 
+<meta http-equiv="Content-Type" content="text/html; charset="> 
+</meta> 
+<head> 
+  <title>Relaxed Semantics of a Concurrent Programming Language</title> 
+</head> 
+<body> 
+<h1> 
+Relaxed Semantics of a Concurrent Programming Language
+</h1> 
+<h2> 
+<a href="http://www-sop.inria.fr/members/Gerard.Boudol/">G&eacute;rard
+Boudol</a> & <a href="http://fpl.cs.depaul.edu/gpetri/">Gustavo
+Petri</a>
+</h2> 
+
+<table><tr><td valign="top"> 
+</td><td valign="top"> 
+<b>Abstract:</b>
+  <p> 
+  We address the problem of ensuring that a multithreaded program appears to have
+  sequentially consistent semantics when the implementation of the language provides it
+  with a relaxed semantics (aka a weak memory model). We introduce a new operational
+  formalization of such a relaxed semantics, generalizing write buffering models.  Our
+  formulation involves a "temporary store" where the memory operations issued by the
+  threads are recorded, in program order. We define the conditions under which a pending
+  operation from this sequence is allowed to be globally performed, possibly out of
+  order. We then identify a sufficient condition for a program to behave in a sequentially
+  consistent way in the relaxed semantics. Finally we design a type and behavioral effect
+  system for enforcing this condition in our language, thus guaranteeing sequential
+  consistency.
+  </p> 
+<b>Material:</b>
+<p><a
+  href="./publis/rsocpl-short.pdf">Extended Abstract</a>.</p>
+  <p> <a
+  href="./publis/rsocpl-long.pdf">Full paper</a> with proofs.
+</p>
+</td></tr></table> 
+</body> 
+</html> 

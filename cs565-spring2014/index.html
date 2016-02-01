@@ -1,0 +1,418 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>syllabus</TITLE>
+<META NAME="description" CONTENT="syllabus">
+<META NAME="keywords" CONTENT="syllabus">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="syllabus.css">
+
+</HEAD>
+
+<BODY >
+
+<P>
+
+<H1><A NAME="SECTION00010000000000000000">
+<U>CS 565: Programming Languages</U></A>
+</H1>
+
+<P>
+
+<H1><A NAME="SECTION00020000000000000000">
+General Information</A>
+</H1>
+
+<P>
+<TABLE  WIDTH="346">
+<TR><TD>
+<U><B>Lecturer</B></U>
+<BR>
+Gustavo Petri
+<BR>
+Room 3154S
+<BR>
+Lawson Computer Science Building
+<BR>
+<TT>gpetri@purdue.edu</TT>
+<BR>
+<P>
+<U><B>TA</B></U>
+<BR>
+Kristen Johnson
+<BR>
+<TT>john1187@purdue.edu</TT>
+<BR>
+<P>
+<U><B>Classes</B></U>
+<BR>
+Day: Monday, Wednesday and Friday
+<BR>
+Time: 11:30 am - 12:20 pm
+<BR>
+Location: LWSN 1106
+<BR>
+<P>
+<U><B>Office Hours:</B></U>
+<BR>
+Mo, We  2-3 PM. By appointment.
+</TD></TR>
+</TABLE>
+
+<P>
+
+<H1><A NAME="SECTION00030000000000000000">
+Course Overview</A>
+</H1>
+
+<P>
+The goal of this course is the study of programming languages from a
+foundational viewpoint. We will examine the design, implementation
+and theory of programming languages features.
+ We will give particular emphasis on aspects of reliability, both of
+the language and of programs written using the language.
+To that end, we will develop and use tools that enable reasoning about
+both the design and specification of new language features, and that
+allow precise understanding of the rationale for existing features in
+modern languages.
+This course will <EM>not</EM> be a survey of existing languages or language
+features.  Instead, we will explore ways to understand programming languages
+generally that help us to answer questions such as the following:
+
+<P>
+
+<OL>
+<LI>What is a program <EM>specification</EM> and what role do
+specifications play in program construction and reliability?
+
+<P>
+</LI>
+<LI>What are sensible and tractable notions of program correctness?
+
+<P>
+</LI>
+<LI>How do we qualify notions of abstraction and types found in modern
+  programming languages?  Can we formalize the relationship between types
+  and computation?
+
+<P>
+</LI>
+<LI>How do we rigorously express the meaning of program structures,
+  and <EM>prove</EM> useful properties about them?  
+
+<P>
+</LI>
+<LI>What tools can we bring to bear to help automate such proofs?
+
+<P>
+</LI>
+</OL>
+
+<P>
+To help answer these questions, the course is designed around several
+interleaved themes: (1) the role of logic and proofs in programming language
+design; (2) formal reasoning devices (aka operational and axiomatic
+semantics) that precisely explain the meaning of programming language
+features and program executions; (3) the use of types to define and specify
+safety conditions on program executions, and to enrich language
+expressivity; (4) the use of automated proof assistants to help validate
+important theorems that describe useful properties based on the structure of
+(2) and (3), using techniques enabled by (1).
+
+<P>
+At the end of this class, students should be comfortable with modern notions
+of language semantics and specification, have developed sufficient
+mathematical maturity to formally prove interesting properties about a
+language features, type systems, or complex computation structures
+generally, and be capable of understanding current research trends in the
+field.
+
+<P>
+The course will be divided into roughly four parts:
+
+<P>
+
+<OL>
+<LI>The first part of the course will introduce students to mechanized
+  proof assistants.  We will use Coq, an expressive and powerful proof
+  assistant that enables interactive construction of formal constructive
+  proofs.  
+
+<P>
+</LI>
+<LI>The second part of the course will introduce student to program
+  logics, inductive reasoning principles, the relationship between
+  proofs and programming, and related proof methods.
+
+<P>
+</LI>
+<LI>The third part of the course will provide an overview of
+  different semantic models (both axiomatic and operational), will
+  introduce different notions of interpretation and evaluation,
+  discuss program specification techniques, and formalize notions of
+  program equivalence.
+
+<P>
+</LI>
+<LI>The fourth part of the course will focus on types, with special
+  emphasis on the typed lambda-calculus, a core language within which
+  different type systems (e.g., simple types, subtyping, polymorphism) can
+  be precisely studied.
+
+<P>
+</LI>
+</OL>
+
+<P>
+
+<H1><A NAME="SECTION00040000000000000000">
+Prerequistes</A>
+</H1>
+
+<P>
+It is assumed that students taking this class would have had some
+exposure to an undergraduate programming languages class (equivalent
+to CS 465), and are comfortable with basic mathematical concepts
+(e.g., graph and set theory).  
+
+<P>
+
+<H1><A NAME="SECTION00050000000000000000">
+Programming Assignments</A>
+</H1>
+
+<P>
+There will be assignments given every week.  These assignments will take the
+form of programming exercises in Coq; most of these exercises will entail
+developing mechanized proofs whose correctness is automatically checked by
+Coq.  Thus, These exercises will require students to define various
+concepts, and prove important theorems about the topics discussed during the
+lecture, using Coq.  Students are encouraged to work together on these
+assignments.
+
+<P>
+
+<H1><A NAME="SECTION00060000000000000000">
+Project</A>
+</H1>
+
+<P>
+There will be a semester-long project that will involve using Coq to define
+a formal system of a computing artifact (e.g., a type system, a concurrency
+abstraction, a security policy, etc.), develop theorems and proofs about
+existing systems, explore program analysis definitions and correctness,
+etc.  Students can work teams or individually.  A proposal indicating the
+project topic, justification, and methodology must be submitted and approved
+by (<I>TBD</I>).
+Projects will be due at the end of the semester.
+
+<P>
+
+<H1><A NAME="SECTION00070000000000000000">
+Grading</A>
+</H1>
+Grading for this class will be based as follows:
+<BR>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER">Programming Assignments</TD>
+<TD ALIGN="CENTER">30%</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Project</TD>
+<TD ALIGN="CENTER">40%</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Final</TD>
+<TD ALIGN="CENTER">30%</TD>
+</TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H1><A NAME="SECTION00080000000000000000">
+Texts</A>
+</H1>
+
+<P>
+The course is structured around the following book by Benjamin Pierce:
+
+<UL>
+<LI><B>Software Foundations</B>, Benjamin Pierce.
+<BR>
+(see: <TT><A NAME="tex2html1"
+  HREF="http://www.cis.upenn.edu/~bcpierce/sf/">http://www.cis.upenn.edu/~bcpierce/sf/</A></TT>)
+</LI>
+</UL>
+
+<P>
+Useful supplemental material can also be found in
+
+<UL>
+<LI><B>Types and Programming Languages</B>, Benjamin C.  Pierce, MIT
+  Press 2002.
+
+<P>
+</LI>
+<LI><B>Certified Programming with Dependent Types</B>, Adam Chlipala,
+  MIT Press, 2013.
+<BR>(see: <TT><A NAME="tex2html2"
+  HREF="http://adam.chlipala.net/cpdt/">http://adam.chlipala.net/cpdt/</A></TT>)
+</LI>
+</UL>
+
+<P>
+In addition, students might also find the following texts useful:
+
+<P>
+
+<UL>
+<LI><B>Formal Semantics</B>, Glynn Winskel, MIT Press 1993.
+
+<P>
+</LI>
+<LI><B>Essentials of Programming Languages</B>, Daniel Frideman,
+Mitchell Wand, and Christopher Haynes, MIT Press 2001.
+
+<P>
+</LI>
+<LI><B>Foundations of Programming Languages</B>, John Mitchell,
+MIT Press, 1996.
+
+<P>
+</LI>
+<LI><B>The Structure of Typed Programming Languages</B>, David
+Schmidt, MIT Press, 1994.
+
+<P>
+</LI>
+<LI><B>Theories of Programming Languages</B>, John C. Reynolds,
+  Cambridge University Press, 1998.
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION00090000000000000000">
+Resources on Coq</A>
+</H1>
+
+<P>
+There are a number of tutorials and detailed documentation available
+on Coq:
+
+<P>
+
+<UL>
+<LI><B>Interactive Theorem Proving and Program Development:
+    Coq'Art: The Calculus of Inductive Constructions</B>, Yves Bertot and
+  Pierre Casternan, Springer-Verlag, 2004.
+
+<P>
+</LI>
+<LI><B>The Coq homepage</B> (<TT><A NAME="tex2html3"
+  HREF="http://coq.inria.fr/documentation">http://coq.inria.fr/documentation</A></TT>).
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION000100000000000000000">
+Web Pages and Forums</A>
+</H1>
+
+<P>
+Copies of the lectures and handouts will be available through the course
+web page:
+<BR>
+<TT><A NAME="tex2html4"
+  HREF="http://www.cs.purdue.edu/homes/gpetri/cs565-spring2014/index.html">http://www.cs.purdue.edu/homes/gpetri/cs565-spring2014/index.html</A></TT>
+<P>
+The course will leverage piazza (<TT><A NAME="tex2html5"
+  HREF="http://piazza.com">http://piazza.com</A></TT>), an interactive
+Q&amp;A newsgroup messaging system that allows students, faculty, and TAs to
+post questions (and answers) to problems and issues related to the course.
+
+<P>
+
+<H1><A NAME="SECTION000110000000000000000">
+Tentative Syllabus</A>
+</H1>
+
+<P>
+The course will roughly follow the breakdown given below.  
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="LEFT"><EM>Subject</EM></TD>
+<TD ALIGN="CENTER"><EM>Specific Topics</EM></TD>
+</TR>
+<TR><TD ALIGN="LEFT">Foundations</TD>
+<TD ALIGN="CENTER">Introduction</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">Functional Programming</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">Polymorphism and Higher-Order Programming</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">Dependent Types</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">Propositions, Evidence, and Relations</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Program Semantics</TD>
+<TD ALIGN="CENTER">Imperative Programs</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">Program Equivalence</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">Hoare Logic and Axiomatic Semantics</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">Operational Semantics</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Types</TD>
+<TD ALIGN="CENTER">Simply-Typed Lambda Calculus</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">Typing Judgments, Contexts, and Relations</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">Record Subtyping</TD>
+</TR>
+<TR><TD ALIGN="LEFT">More on Types</TD>
+<TD ALIGN="CENTER">Existential Types</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">Recursive Types</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">System F</TD>
+</TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Gustavo Petri
+2014-01-11
+</ADDRESS>
+</BODY>
+</HTML>
