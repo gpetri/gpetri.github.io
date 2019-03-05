@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-03-03 Sun 21:38 -->
+<!-- 2019-03-05 Tue 15:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -246,29 +246,36 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3a997d7">1. Day 1:</a>
+<li><a href="#org9be4104">1. Day 1:</a>
 <ul>
-<li><a href="#org3a47ad7">1.1. Setup</a></li>
-<li><a href="#orgd965e56">1.2. Create an UM6P Actor System</a></li>
-<li><a href="#orgd5dc06b">1.3. Little project</a>
+<li><a href="#orgb58ff82">1.1. Setup</a></li>
+<li><a href="#org27580b8">1.2. Create an UM6P Actor System</a></li>
+<li><a href="#orga65c3af">1.3. Little project</a>
 <ul>
-<li><a href="#org8b18f0b">1.3.1. Modelling the application</a></li>
-<li><a href="#orgadc3bca">1.3.2. Communication</a></li>
-<li><a href="#orge5a9b56">1.3.3. Responses</a></li>
-<li><a href="#org7660d7a">1.3.4. Consider the Fail tolerance model of our simple application</a></li>
+<li><a href="#org6ac1aed">1.3.1. Modelling the application</a></li>
+<li><a href="#orgcf04d02">1.3.2. Communication</a></li>
+<li><a href="#orge28e72c">1.3.3. Responses</a></li>
+<li><a href="#orgf9359c4">1.3.4. Consider the Fail tolerance model of our simple application</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#orge236b6b">2. Day 2:</a>
+<ul>
+<li><a href="#orgaf43711">2.1. From the application we created yesterday. Can you identify bottlenecks?</a></li>
+<li><a href="#org1c0e95f">2.2. Modify the University application so that the University actor(s) as well as each department are in a single node</a></li>
+<li><a href="#orge594f11">2.3. Using remote actors, partition the application to tolerate more clients or faults</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3a997d7" class="outline-2">
-<h2 id="org3a997d7"><span class="section-number-2">1</span> Day 1:</h2>
+<div id="outline-container-org9be4104" class="outline-2">
+<h2 id="org9be4104"><span class="section-number-2">1</span> Day 1:</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org3a47ad7" class="outline-3">
-<h3 id="org3a47ad7"><span class="section-number-3">1.1</span> Setup</h3>
+<div id="outline-container-orgb58ff82" class="outline-3">
+<h3 id="orgb58ff82"><span class="section-number-3">1.1</span> Setup</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>You will need Java + Scala + SBT
@@ -304,16 +311,16 @@ we will continue adding dependencies to this list
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd965e56" class="outline-3">
-<h3 id="orgd965e56"><span class="section-number-3">1.2</span> Create an UM6P Actor System</h3>
+<div id="outline-container-org27580b8" class="outline-3">
+<h3 id="org27580b8"><span class="section-number-3">1.2</span> Create an UM6P Actor System</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Create a simple UM6P actor system, and print its information as output</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd5dc06b" class="outline-3">
-<h3 id="orgd5dc06b"><span class="section-number-3">1.3</span> Little project</h3>
+<div id="outline-container-orga65c3af" class="outline-3">
+<h3 id="orga65c3af"><span class="section-number-3">1.3</span> Little project</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 We will create a small application operating as a simple university. The application has the following entities:
@@ -326,8 +333,8 @@ We will create a small application operating as a simple university. The applica
 <li>The students can register for different courses if they are registered in the university and in the department</li>
 </ul>
 </div>
-<div id="outline-container-org8b18f0b" class="outline-4">
-<h4 id="org8b18f0b"><span class="section-number-4">1.3.1</span> Modelling the application</h4>
+<div id="outline-container-org6ac1aed" class="outline-4">
+<h4 id="org6ac1aed"><span class="section-number-4">1.3.1</span> Modelling the application</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <ul class="org-ul">
 <li>Create a simple actor model to represent this application (it doesn't need to be complete &#x2026;, start small)</li>
@@ -336,16 +343,16 @@ We will create a small application operating as a simple university. The applica
 </ul>
 </div>
 </div>
-<div id="outline-container-orgadc3bca" class="outline-4">
-<h4 id="orgadc3bca"><span class="section-number-4">1.3.2</span> Communication</h4>
+<div id="outline-container-orgcf04d02" class="outline-4">
+<h4 id="orgcf04d02"><span class="section-number-4">1.3.2</span> Communication</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <ul class="org-ul">
 <li>Create messages so that students can register or unregister from courses</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge5a9b56" class="outline-4">
-<h4 id="orge5a9b56"><span class="section-number-4">1.3.3</span> Responses</h4>
+<div id="outline-container-orge28e72c" class="outline-4">
+<h4 id="orge28e72c"><span class="section-number-4">1.3.3</span> Responses</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <ul class="org-ul">
 <li>Imagine that the University actor has a data base of registered students and only registered students of each department can sign-up for courses of that department</li>
@@ -354,8 +361,8 @@ We will create a small application operating as a simple university. The applica
 </ul>
 </div>
 </div>
-<div id="outline-container-org7660d7a" class="outline-4">
-<h4 id="org7660d7a"><span class="section-number-4">1.3.4</span> Consider the Fail tolerance model of our simple application</h4>
+<div id="outline-container-orgf9359c4" class="outline-4">
+<h4 id="orgf9359c4"><span class="section-number-4">1.3.4</span> Consider the Fail tolerance model of our simple application</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <ul class="org-ul">
 <li>How can we best architect the application to make it fault tolerant?</li>
@@ -365,10 +372,30 @@ We will create a small application operating as a simple university. The applica
 </div>
 </div>
 </div>
+<div id="outline-container-orge236b6b" class="outline-2">
+<h2 id="orge236b6b"><span class="section-number-2">2</span> Day 2:</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgaf43711" class="outline-3">
+<h3 id="orgaf43711"><span class="section-number-3">2.1</span> From the application we created yesterday. Can you identify bottlenecks?</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Write a simple client-side application that attempts to flood the university application we wrote yesterday with messages until it is overloaded and it stops responding</li>
+<li>What could we do better to support a more scalable solution?</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1c0e95f" class="outline-3">
+<h3 id="org1c0e95f"><span class="section-number-3">2.2</span> Modify the University application so that the University actor(s) as well as each department are in a single node</h3>
+</div>
+<div id="outline-container-orge594f11" class="outline-3">
+<h3 id="orge594f11"><span class="section-number-3">2.3</span> Using remote actors, partition the application to tolerate more clients or faults</h3>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Gustavo Petri</p>
-<p class="date">Created: 2019-03-03 Sun 21:38</p>
+<p class="date">Created: 2019-03-05 Tue 15:11</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
