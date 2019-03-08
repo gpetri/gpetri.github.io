@@ -1,0 +1,1710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-03-08 Fri 15:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Gustavo Petri" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5c46527">1. JMM</a>
+<ul>
+<li><a href="#org1b840ec">1.1. Two threads in Java sharing memory</a></li>
+<li><a href="#org02941a4">1.2. TSO.java</a></li>
+</ul>
+</li>
+<li><a href="#orgc7fe3cb">2. Erlang</a>
+<ul>
+<li><a href="#org576d2eb">2.1. Simple Ping Pong applicatoin</a></li>
+<li><a href="#org20a27c8">2.2. message-passing.erl</a></li>
+<li><a href="#orgc8b6f7b">2.3. Start pong server</a></li>
+<li><a href="#org01b8ca4">2.4. Start ping server</a></li>
+</ul>
+</li>
+<li><a href="#orgda37a57">3. Starting up</a>
+<ul>
+<li><a href="#org3091892">3.1. SBT set up</a>
+<ul>
+<li><a href="#org8147863">3.1.1. build.sbt</a></li>
+<li><a href="#org80e1393">3.1.2. </a></li>
+</ul>
+</li>
+<li><a href="#org695fc1f">3.2. Hello World</a>
+<ul>
+<li><a href="#orge203094">3.2.1. Creates an actor system</a></li>
+<li><a href="#org98c9f2c">3.2.2. Prints the url</a></li>
+<li><a href="#orge3fd721">3.2.3. AkkaActors.scala</a></li>
+<li><a href="#org05cacdb">3.2.4. </a></li>
+</ul>
+</li>
+<li><a href="#org7d28a1c">3.3. Actor Local State and Behavior</a>
+<ul>
+<li><a href="#org0248db6">3.3.1. Creates a simple actor that keeps a counter</a></li>
+<li><a href="#orgd0397e4">3.3.2. Increments the counter on a message receive</a></li>
+<li><a href="#org4a5bcc1">3.3.3. BehaviorAndState.scala</a></li>
+<li><a href="#orgc0acd02">3.3.4. </a></li>
+<li><a href="#org4b5089e">3.3.5. Different messages</a></li>
+</ul>
+</li>
+<li><a href="#orgdbd9233">3.4. Waiting for a response</a>
+<ul>
+<li><a href="#org0fc2e8f">3.4.1. A simple actor that receives a number, calculates Fibonacci and returns the value to the sender</a></li>
+<li><a href="#org37d36d2">3.4.2. FiboActor.scala</a></li>
+<li><a href="#orgd56145d">3.4.3. </a></li>
+</ul>
+</li>
+<li><a href="#org8085a46">3.5. Communicating two actors</a>
+<ul>
+<li><a href="#org8e74c7a">3.5.1. Extension of the example above, where a query actor makes the query and prints out the response</a></li>
+<li><a href="#org24137e6">3.5.2. Communication.scala</a></li>
+<li><a href="#orgd32e7e1">3.5.3. </a></li>
+</ul>
+</li>
+<li><a href="#orge240189">3.6. Become/Unbecome</a>
+<ul>
+<li><a href="#orgb3d03a4">3.6.1. Allows an actor to change it's behavior according to its state</a></li>
+<li><a href="#org21791fc">3.6.2. BecomeUnbecome.scala</a></li>
+<li><a href="#org441b96b">3.6.3. </a></li>
+</ul>
+</li>
+<li><a href="#org7b126fa">3.7. Stop an actor</a>
+<ul>
+<li><a href="#orgc257700">3.7.1. Two ways to terminate an actor:</a></li>
+<li><a href="#orgfba2ba2">3.7.2. </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5b6af86">4. Fault Tolerance</a>
+<ul>
+<li><a href="#orge601923">4.1. Supervision and Monitoring</a>
+<ul>
+<li><a href="#orgafabf8d">4.1.1. Parent Child creation</a></li>
+<li><a href="#org28d1fd0">4.1.2. Actor Life Cycle</a></li>
+<li><a href="#orgce51cf4">4.1.3. Collecting answers</a></li>
+</ul>
+</li>
+<li><a href="#orgd4d3489">4.2. Let it Crash!</a>
+<ul>
+<li><a href="#orgfc96fc4">4.2.1. OneForOneStrategy</a></li>
+<li><a href="#orgb097eed">4.2.2. AllForOneStrategy</a></li>
+<li><a href="#orge1e11b3">4.2.3. DeathWatch</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0e1cb22">5. Futures</a>
+<ul>
+<li><a href="#orgf34a0c8">5.1. A simple future</a>
+<ul>
+<li><a href="#org48f92df">5.1.1. Futures are supported by an Execution Context, which is a pool of threads</a></li>
+<li><a href="#org51d5f1c">5.1.2. AddFuture.scala</a></li>
+</ul>
+</li>
+<li><a href="#org0f47970">5.2. Send a message to an actor and wait with a future</a>
+<ul>
+<li><a href="#orgc176d7f">5.2.1. FutureWithActor.scala</a></li>
+</ul>
+</li>
+<li><a href="#orgdb77a5b">5.3. FutureInsideActor.scala</a></li>
+<li><a href="#org5029c12">5.4. Callback</a>
+<ul>
+<li><a href="#orgb5d80e6">5.4.1. Callback.scala</a></li>
+</ul>
+</li>
+<li><a href="#org84b96df">5.5. For comprehensions</a>
+<ul>
+<li><a href="#orgf4b0c40">5.5.1. Parallel.scala</a></li>
+</ul>
+</li>
+<li><a href="#orgc3a142e">5.6. Agents are deprecated</a></li>
+</ul>
+</li>
+<li><a href="#org4550990">6. Persistence</a>
+<ul>
+<li><a href="#org45ec424">6.1. reference.conf</a></li>
+<li><a href="#orged599d5">6.2. SamplePersistenceModel.scala</a></li>
+<li><a href="#org243473f">6.3. SamplePersistenceActor.scala</a></li>
+<li><a href="#orgf4e786d">6.4. SamplePersistenceApp.scala</a></li>
+<li><a href="#orgde8dbf4">6.5. </a></li>
+</ul>
+</li>
+<li><a href="#org8e2655c">7. Remote Actors and Scaling Applications</a>
+<ul>
+<li><a href="#orgb5e1f61">7.1. Configuration files</a>
+<ul>
+<li><a href="#org36b568f">7.1.1. application.conf</a></li>
+</ul>
+</li>
+<li><a href="#org041325a">7.2. Remote actors on a different "Machine"</a>
+<ul>
+<li><a href="#org58e3a60">7.2.1. application-1.conf</a></li>
+<li><a href="#orgd8ae42b">7.2.2. application-2.conf</a></li>
+<li><a href="#orgcc6e21b">7.2.3. RemotingApplication.scala</a></li>
+<li><a href="#org3c80081">7.2.4. </a></li>
+</ul>
+</li>
+<li><a href="#org64dfa13">7.3. Looking up remote actors</a>
+<ul>
+<li><a href="#orgf61a651">7.3.1. The first call creates an actor system, and a SimpleActor in it</a></li>
+<li><a href="#org8138033">7.3.2. The second call contacts the first node, and retrieves an actor reference in the first node</a></li>
+<li><a href="#org4519689">7.3.3. LookingUpRemoteApplication.scala</a></li>
+<li><a href="#org875a7d9">7.3.4. </a></li>
+</ul>
+</li>
+<li><a href="#org5ab53bd">7.4. Deploy remote actors</a>
+<ul>
+<li><a href="#orgf3d1127">7.4.1. First call creates an actor system</a></li>
+<li><a href="#org2336186">7.4.2. Second call create an actor on the first actor system</a></li>
+<li><a href="#org5043a68">7.4.3. </a></li>
+</ul>
+</li>
+<li><a href="#org70b56df">7.5. Scaling out an application</a>
+<ul>
+<li><a href="#org7d39e12">7.5.1. WorkerActor.scala</a></li>
+<li><a href="#orgf4d7357">7.5.2. ScalingOutApplication.scala</a></li>
+<li><a href="#org28c45dd">7.5.3. </a></li>
+</ul>
+</li>
+<li><a href="#org56906a5">7.6. Chat application</a>
+<ul>
+<li><a href="#org2812ef3">7.6.1. A server hold all the clients and takes care of broadcasting messages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orge51c860">8. Clustering and Sharding</a>
+<ul>
+<li><a href="#org26e7823">8.1. Configuration</a>
+<ul>
+<li><a href="#org782e5bb">8.1.1. application-cluster-generic.conf</a></li>
+</ul>
+</li>
+<li><a href="#org2eb5b7a">8.2. Distributed Pub/Sub</a>
+<ul>
+<li><a href="#org82db661">8.2.1. application-cluster-1.conf</a></li>
+<li><a href="#org0935ffb">8.2.2. application-cluster-2.conf</a></li>
+<li><a href="#org547a188">8.2.3. NotificationPublisher.scala</a></li>
+<li><a href="#org3d26048">8.2.4. NotificationSubscriber.scala</a></li>
+<li><a href="#orgd0fa400">8.2.5. DistributedPubSubApplication.scala</a></li>
+<li><a href="#orgb7ff416">8.2.6. </a></li>
+</ul>
+</li>
+<li><a href="#org32eb057">8.3. Sharding</a>
+<ul>
+<li><a href="#org43ceb87">8.3.1. application-cluster-shrading-1.conf</a></li>
+<li><a href="#org0e170b0">8.3.2. application-cluster-shrading-2.conf</a></li>
+<li><a href="#org4ee27e7">8.3.3. TemperatureActor.scala</a></li>
+<li><a href="#org509b47a">8.3.4. ClusterShardingApplication.scala</a></li>
+<li><a href="#org2617274">8.3.5. </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4b7194a">9. Akka Patterns</a>
+<ul>
+<li><a href="#org806c115">9.1. Master/Slave</a>
+<ul>
+<li><a href="#org1a220b5">9.1.1. MasterWorkPulling.scala</a></li>
+<li><a href="#org8986a6b">9.1.2. WorkerWorkPulling.scala</a></li>
+<li><a href="#org2d04de4">9.1.3. GeneratorWorkPulling.scala</a></li>
+<li><a href="#org9de3663">9.1.4. WorkerPullingApp.scala</a></li>
+<li><a href="#org6bda152">9.1.5. </a></li>
+</ul>
+</li>
+<li><a href="#org3f577ef">9.2. Ordered Termination</a>
+<ul>
+<li><a href="#orgd1fa6b3">9.2.1. ServiceHandler.scala</a></li>
+<li><a href="#org6e70c38">9.2.2. ServiceManager.scala</a></li>
+<li><a href="#orge4e2680">9.2.3. OrderedKiller.scala</a></li>
+<li><a href="#org8746981">9.2.4. OrderedTerminationApp.scala</a></li>
+<li><a href="#org9fdbe80">9.2.5. </a></li>
+</ul>
+</li>
+<li><a href="#org0c83c8f">9.3. Shutdown</a>
+<ul>
+<li><a href="#org1fc9532">9.3.1. Reaper.scala</a></li>
+<li><a href="#org28da48c">9.3.2. ReaperAwareActor.scala</a></li>
+<li><a href="#orgd4ad6a0">9.3.3. ShutdownPatternWorker.scala</a></li>
+<li><a href="#org54e34b1">9.3.4. ShutdownPatternMaster.scala</a></li>
+<li><a href="#orgf4a999b">9.3.5. ShutdownPatternApp.scala</a></li>
+<li><a href="#orgc8c2a86">9.3.6. </a></li>
+</ul>
+</li>
+<li><a href="#orgcf4b94b">9.4. LoadBalancing</a>
+<ul>
+<li><a href="#org0e6866d">9.4.1. BalancedWorker.scala</a></li>
+<li><a href="#org8f4cf6e">9.4.2. BalancingWorkApp.scala</a></li>
+<li><a href="#org3e2ca3f">9.4.3. </a></li>
+</ul>
+</li>
+<li><a href="#org9205ab3">9.5. Finite State Machine</a>
+<ul>
+<li><a href="#orge136f91">9.5.1. FSMChangeSubscriber.scala</a></li>
+<li><a href="#org3c7a1c6">9.5.2. TrafficLightFSM.scala</a></li>
+<li><a href="#org14f39b2">9.5.3. FSMApp.scala</a></li>
+<li><a href="#orga45c64c">9.5.4. </a></li>
+</ul>
+</li>
+<li><a href="#org9edae37">9.6. Enveloping</a>
+<ul>
+<li><a href="#org0faa228">9.6.1. EnvelopeReceive.scala</a></li>
+<li><a href="#orgadc5ecf">9.6.2. EnvelopingActor.scala</a></li>
+<li><a href="#orga87aeb1">9.6.3. EnvelopingActorApp.scala</a></li>
+<li><a href="#orga414462">9.6.4. </a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org872367d">10. Akka in a Docker Image</a>
+<ul>
+<li><a href="#org5f8eb77">10.1. Create a standalone application (.jar)</a></li>
+<li><a href="#org5502ca1">10.2. Create a Docker image</a>
+<ul>
+<li><a href="#org5ab9641">10.2.1. copy the jar to a different directory</a></li>
+<li><a href="#orgf899f78">10.2.2. Create a Dockerfile</a></li>
+<li><a href="#org07db542">10.2.3. Create a Docker image</a></li>
+<li><a href="#org9608cac">10.2.4. Run a container with the image</a></li>
+<li><a href="#org7865be6">10.2.5. Stop/Remove the container and remove the image</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0961dc0">11. Launch EC2 instances</a>
+<ul>
+<li><a href="#org532c743">11.1. Start an AWS instance</a></li>
+</ul>
+</li>
+<li><a href="#orge2d4fa6">12. Akka on EC2</a>
+<ul>
+<li><a href="#org188d9dc">12.1. AkkaConfig.scala</a></li>
+<li><a href="#orgb17de65">12.2. EC2.scala</a></li>
+<li><a href="#orgede18c3">12.3. BroadcastActor.scala</a></li>
+<li><a href="#orge485cba">12.4. Main.scala</a></li>
+<li><a href="#org2f66691">12.5. Compile</a></li>
+<li><a href="#org96e989b">12.6. Run Locally</a></li>
+<li><a href="#org83791bf">12.7. Run in an EC2 Autoscaling Group</a>
+<ul>
+<li><a href="#orgb2973c1">12.7.1. Go to EC2 Autoscaling Gropus (EC2 Management Console)</a></li>
+<li><a href="#org0965399">12.7.2. Increment the desired/min/max instance count</a></li>
+<li><a href="#org6b3da02">12.7.3. Navitage to Running Instances (EC2 Management Console)</a></li>
+<li><a href="#orge52dd6e">12.7.4. Get public IP addresses of running instances and install java</a></li>
+<li><a href="#orgca1fdcb">12.7.5. Copy the .jar file to each of the instances</a></li>
+<li><a href="#org4b52f1e">12.7.6. Launch the application in each of the instances</a></li>
+<li><a href="#org003b739">12.7.7. Add a new node and repeat</a></li>
+<li><a href="#orgd74ffbc">12.7.8. Shutdown the scaling group</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org636f4df">13. Akka on Docker</a>
+<ul>
+<li><a href="#org6155e2e">13.1. Explore the application:</a>
+<ul>
+<li><a href="#org3e0e1b2">13.1.1. Main.scala</a></li>
+<li><a href="#org3b8cc0e">13.1.2. Create the docker image</a></li>
+<li><a href="#org6ff1ffe">13.1.3. List image names and pick the right image</a></li>
+<li><a href="#org8ca26f9">13.1.4. Start a first seed node and get the seed node ip</a></li>
+<li><a href="#org29bd137">13.1.5. Start a second seed node using the address of the first one as a seed</a></li>
+<li><a href="#orgb3b2d28">13.1.6. Start as many worker nodes as necessary</a></li>
+<li><a href="#orgdc497e0">13.1.7. Remove all the nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org2470718">14. Akka on Kubernetes</a>
+<ul>
+<li><a href="#org07e6492">14.1. Main.scala</a></li>
+<li><a href="#org1bf4556">14.2. k8s</a>
+<ul>
+<li><a href="#orgbe192b9">14.2.1. simple-akka-cluster-deployment.yml</a></li>
+<li><a href="#org5288118">14.2.2. simple-akka-cluster-rbac.yml</a></li>
+<li><a href="#org7c9598b">14.2.3. simple-akka-cluster-service.yml</a></li>
+</ul>
+</li>
+<li><a href="#orga7874f9">14.3. Running the application on Minikube</a>
+<ul>
+<li><a href="#org320df90">14.3.1. Start the minikube (Simulates a kuberenetes equipped cluster) and link to its docker engine</a></li>
+<li><a href="#org5b2d8b8">14.3.2. Publish the docker images to the minikube</a></li>
+<li><a href="#org3ca7b5c">14.3.3. Create a service account and role in kuberenetes</a></li>
+<li><a href="#org93f412f">14.3.4. Create a deployment</a></li>
+<li><a href="#org150918d">14.3.5. Create a service</a></li>
+<li><a href="#org41c10da">14.3.6. Open minikube's dashboard</a></li>
+<li><a href="#orgdc479a4">14.3.7. Get the port of the akka http management API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgae2132e">15. Replicated Data</a>
+<ul>
+<li><a href="#org3eda70b">15.1. CRDTs</a>
+<ul>
+<li><a href="#org1953878">15.1.1. SubscriptionManager.scala</a></li>
+<li><a href="#org30ec815">15.1.2. DistributedDataApplication.scala</a></li>
+<li><a href="#org2838b56">15.1.3. </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5c46527" class="outline-2">
+<h2 id="org5c46527"><span class="section-number-2">1</span> JMM</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org1b840ec" class="outline-3">
+<h3 id="org1b840ec"><span class="section-number-3">1.1</span> Two threads in Java sharing memory</h3>
+</div>
+<div id="outline-container-org02941a4" class="outline-3">
+<h3 id="org02941a4"><span class="section-number-3">1.2</span> <a href="weak-memory/TSO.java">TSO.java</a></h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-bash">java -ea -server TSO</pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc7fe3cb" class="outline-2">
+<h2 id="orgc7fe3cb"><span class="section-number-2">2</span> Erlang</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org576d2eb" class="outline-3">
+<h3 id="org576d2eb"><span class="section-number-3">2.1</span> Simple Ping Pong applicatoin</h3>
+</div>
+<div id="outline-container-org20a27c8" class="outline-3">
+<h3 id="org20a27c8"><span class="section-number-3">2.2</span> <a href="erlang/mp.erl">message-passing.erl</a></h3>
+</div>
+<div id="outline-container-orgc8b6f7b" class="outline-3">
+<h3 id="orgc8b6f7b"><span class="section-number-3">2.3</span> Start pong server</h3>
+<div class="outline-text-3" id="text-2-3">
+<div class="org-src-container">
+<pre class="src src-bash">erl -sname pong
+mp: start_pong<span style="color: #ff8c00; font-size: 9.959999999999999pt;">()</span>.</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org01b8ca4" class="outline-3">
+<h3 id="org01b8ca4"><span class="section-number-3">2.4</span> Start ping server</h3>
+<div class="outline-text-3" id="text-2-4">
+<div class="org-src-container">
+<pre class="src src-bash">erl -sname ping
+mp: start_ping<span style="color: #ff8c00; font-size: 9.959999999999999pt;">(</span><span style="color: #EEDC82; font-size: 9.959999999999999pt;">'pong@FVFX91RXHV2J'</span><span style="color: #ff8c00; font-size: 9.959999999999999pt;">)</span>.</pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgda37a57" class="outline-2">
+<h2 id="orgda37a57"><span class="section-number-2">3</span> Starting up</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org3091892" class="outline-3">
+<h3 id="org3091892"><span class="section-number-3">3.1</span> SBT set up</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org8147863" class="outline-4">
+<h4 id="org8147863"><span class="section-number-4">3.1.1</span> <a href="playground/akka-cookbook/build.sbt">build.sbt</a></h4>
+</div>
+<div id="outline-container-org80e1393" class="outline-4">
+<h4 id="org80e1393"><span class="section-number-4">3.1.2</span> </h4>
+<div class="outline-text-4" id="text-3-1-2">
+<div class="org-src-container">
+<pre class="src src-bash">sbt update</pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org695fc1f" class="outline-3">
+<h3 id="org695fc1f"><span class="section-number-3">3.2</span> Hello World</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-orge203094" class="outline-4">
+<h4 id="orge203094"><span class="section-number-4">3.2.1</span> Creates an actor system</h4>
+</div>
+<div id="outline-container-org98c9f2c" class="outline-4">
+<h4 id="org98c9f2c"><span class="section-number-4">3.2.2</span> Prints the url</h4>
+</div>
+<div id="outline-container-orge3fd721" class="outline-4">
+<h4 id="orge3fd721"><span class="section-number-4">3.2.3</span> <a href="playground/akka-cookbook/src/main/scala/AkkaActors.scala">AkkaActors.scala</a></h4>
+</div>
+<div id="outline-container-org05cacdb" class="outline-4">
+<h4 id="org05cacdb"><span class="section-number-4">3.2.4</span> </h4>
+<div class="outline-text-4" id="text-3-2-4">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch1.AkkaActorSystem"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org7d28a1c" class="outline-3">
+<h3 id="org7d28a1c"><span class="section-number-3">3.3</span> Actor Local State and Behavior</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-org0248db6" class="outline-4">
+<h4 id="org0248db6"><span class="section-number-4">3.3.1</span> Creates a simple actor that keeps a counter</h4>
+</div>
+<div id="outline-container-orgd0397e4" class="outline-4">
+<h4 id="orgd0397e4"><span class="section-number-4">3.3.2</span> Increments the counter on a message receive</h4>
+</div>
+<div id="outline-container-org4a5bcc1" class="outline-4">
+<h4 id="org4a5bcc1"><span class="section-number-4">3.3.3</span> <a href="playground/akka-cookbook/src/main/scala/BehaviorAndState.scala">BehaviorAndState.scala</a></h4>
+</div>
+<div id="outline-container-orgc0acd02" class="outline-4">
+<h4 id="orgc0acd02"><span class="section-number-4">3.3.4</span> </h4>
+<div class="outline-text-4" id="text-3-3-4">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch1.BehaviorAndState"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org4b5089e" class="outline-4">
+<h4 id="org4b5089e"><span class="section-number-4">3.3.5</span> Different messages</h4>
+</div>
+</div>
+<div id="outline-container-orgdbd9233" class="outline-3">
+<h3 id="orgdbd9233"><span class="section-number-3">3.4</span> Waiting for a response</h3>
+<div class="outline-text-3" id="text-3-4">
+</div>
+<div id="outline-container-org0fc2e8f" class="outline-4">
+<h4 id="org0fc2e8f"><span class="section-number-4">3.4.1</span> A simple actor that receives a number, calculates Fibonacci and returns the value to the sender</h4>
+</div>
+<div id="outline-container-org37d36d2" class="outline-4">
+<h4 id="org37d36d2"><span class="section-number-4">3.4.2</span> <a href="playground/akka-cookbook/src/main/scala/FiboActor.scala">FiboActor.scala</a></h4>
+</div>
+<div id="outline-container-orgd56145d" class="outline-4">
+<h4 id="orgd56145d"><span class="section-number-4">3.4.3</span> </h4>
+<div class="outline-text-4" id="text-3-4-3">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch1.FiboActorApp"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org8085a46" class="outline-3">
+<h3 id="org8085a46"><span class="section-number-3">3.5</span> Communicating two actors</h3>
+<div class="outline-text-3" id="text-3-5">
+</div>
+<div id="outline-container-org8e74c7a" class="outline-4">
+<h4 id="org8e74c7a"><span class="section-number-4">3.5.1</span> Extension of the example above, where a query actor makes the query and prints out the response</h4>
+</div>
+<div id="outline-container-org24137e6" class="outline-4">
+<h4 id="org24137e6"><span class="section-number-4">3.5.2</span> <a href="playground/akka-cookbook/src/main/scala/Communication.scala">Communication.scala</a></h4>
+</div>
+<div id="outline-container-orgd32e7e1" class="outline-4">
+<h4 id="orgd32e7e1"><span class="section-number-4">3.5.3</span> </h4>
+<div class="outline-text-4" id="text-3-5-3">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch1.Communication"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge240189" class="outline-3">
+<h3 id="orge240189"><span class="section-number-3">3.6</span> Become/Unbecome</h3>
+<div class="outline-text-3" id="text-3-6">
+</div>
+<div id="outline-container-orgb3d03a4" class="outline-4">
+<h4 id="orgb3d03a4"><span class="section-number-4">3.6.1</span> Allows an actor to change it's behavior according to its state</h4>
+</div>
+<div id="outline-container-org21791fc" class="outline-4">
+<h4 id="org21791fc"><span class="section-number-4">3.6.2</span> <a href="playground/akka-cookbook/src/main/scala/BecomeUnbecome.scala">BecomeUnbecome.scala</a></h4>
+</div>
+<div id="outline-container-org441b96b" class="outline-4">
+<h4 id="org441b96b"><span class="section-number-4">3.6.3</span> </h4>
+<div class="outline-text-4" id="text-3-6-3">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch1.BecomeUnbecomeApp"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org7b126fa" class="outline-3">
+<h3 id="org7b126fa"><span class="section-number-3">3.7</span> Stop an actor</h3>
+<div class="outline-text-3" id="text-3-7">
+</div>
+<div id="outline-container-orgc257700" class="outline-4">
+<h4 id="orgc257700"><span class="section-number-4">3.7.1</span> Two ways to terminate an actor:</h4>
+<div class="outline-text-4" id="text-3-7-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgb9b8009"></a>Sending it a Poisonpill (sender chooses to terminate)<br /></li>
+<li><a id="orgde666b5"></a>context.stop(self) Actor decides to shutdown after a message<br /></li>
+</ol>
+</div>
+<div id="outline-container-orgfba2ba2" class="outline-4">
+<h4 id="orgfba2ba2"><span class="section-number-4">3.7.2</span> </h4>
+<div class="outline-text-4" id="text-3-7-2">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch1.ShutdownActorApp"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5b6af86" class="outline-2">
+<h2 id="org5b6af86"><span class="section-number-2">4</span> Fault Tolerance</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orge601923" class="outline-3">
+<h3 id="orge601923"><span class="section-number-3">4.1</span> Supervision and Monitoring</h3>
+<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-orgafabf8d" class="outline-4">
+<h4 id="orgafabf8d"><span class="section-number-4">4.1.1</span> Parent Child creation</h4>
+<div class="outline-text-4" id="text-4-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="org6744174"></a>The actor that creates an actor is its parent<br /></li>
+<li><a id="org7606227"></a>This can be seen no the path of the actor<br /></li>
+<li><a id="org02be6c4"></a><a href="playground/akka-cookbook/src/main/scala/ParentChild.scala">ParentChild.scala</a><br /></li>
+<li><a id="org6759aa1"></a><br />
+<div class="outline-text-5" id="text-4-1-1-4">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch2.ParentChildApp"</span></pre>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org28d1fd0" class="outline-4">
+<h4 id="org28d1fd0"><span class="section-number-4">4.1.2</span> Actor Life Cycle</h4>
+<div class="outline-text-4" id="text-4-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org3357293"></a>Stages of Actors:<br />
+<div class="outline-text-5" id="text-4-1-2-1">
+<ul class="org-ul">
+<li>PreStart</li>
+<li>Start</li>
+<li>Stop</li>
+<li>PostRestart</li>
+</ul>
+</div>
+</li>
+<li><a id="orgd9b3cb4"></a><a href="playground/akka-cookbook/src/main/scala/ActorLifeCycle.scala">ActorLifeCycle.scala</a><br /></li>
+<li><a id="orgec15ce7"></a><br />
+<div class="outline-text-5" id="text-4-1-2-3">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch2.ActorLifeCycleApp"</span></pre>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgce51cf4" class="outline-4">
+<h4 id="orgce51cf4"><span class="section-number-4">4.1.3</span> Collecting answers</h4>
+<div class="outline-text-4" id="text-4-1-3">
+</div>
+<ol class="org-ol">
+<li><a id="org79d7540"></a>We create an actor that will spawn children<br /></li>
+<li><a id="org3d03ea1"></a>It will send messages to all of themn, and then will print their answers<br /></li>
+<li><a id="orgcb241e2"></a><a href="playground/akka-cookbook/src/main/scala/SendMessagesToChildren.scala">SendMessagesToChildren.scala</a><br /></li>
+<li><a id="orgcd5273a"></a><br />
+<div class="outline-text-5" id="text-4-1-3-4">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch2.SendMessagesToChildrenApp"</span></pre>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgd4d3489" class="outline-3">
+<h3 id="orgd4d3489"><span class="section-number-3">4.2</span> Let it Crash!</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-orgfc96fc4" class="outline-4">
+<h4 id="orgfc96fc4"><span class="section-number-4">4.2.1</span> OneForOneStrategy</h4>
+<div class="outline-text-4" id="text-4-2-1">
+</div>
+<ol class="org-ol">
+<li><a id="org29ba7f0"></a>If an actor fails, only that actor is restarted, resumed or escalated<br /></li>
+<li><a id="orgc6ad583"></a><a href="playground/akka-cookbook/src/main/scala/SupervisionStrategy.scala">SupervisionStrategy.scala</a><br /></li>
+<li><a id="org6b051f4"></a><br />
+<div class="outline-text-5" id="text-4-2-1-3">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch2.SupervisionStrategyApp"</span></pre>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgb097eed" class="outline-4">
+<h4 id="orgb097eed"><span class="section-number-4">4.2.2</span> AllForOneStrategy</h4>
+<div class="outline-text-4" id="text-4-2-2">
+</div>
+<ol class="org-ol">
+<li><a id="org6229d84"></a>The same is applied to all supervised actors if any one fails<br /></li>
+<li><a id="org850a8a6"></a><a href="playground/akka-cookbook/src/main/scala/AllForOneStrategy.scala">AllForOneStrategy.scala</a><br /></li>
+<li><a id="org8c546cb"></a><br />
+<div class="outline-text-5" id="text-4-2-2-3">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch2.AllForOneStrategyApp"</span></pre>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orge1e11b3" class="outline-4">
+<h4 id="orge1e11b3"><span class="section-number-4">4.2.3</span> DeathWatch</h4>
+<div class="outline-text-4" id="text-4-2-3">
+</div>
+<ol class="org-ol">
+<li><a id="orgede2253"></a>Monitoring an actor<br /></li>
+<li><a id="org7543f7d"></a><a href="playground/akka-cookbook/src/main/scala/DeathWatch.scala">DeathWatch.scala</a><br /></li>
+<li><a id="org8bdc609"></a><br />
+<div class="outline-text-5" id="text-4-2-3-3">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch2. DeathWatchApp"</span></pre>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org0e1cb22" class="outline-2">
+<h2 id="org0e1cb22"><span class="section-number-2">5</span> Futures</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgf34a0c8" class="outline-3">
+<h3 id="orgf34a0c8"><span class="section-number-3">5.1</span> A simple future</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-org48f92df" class="outline-4">
+<h4 id="org48f92df"><span class="section-number-4">5.1.1</span> Futures are supported by an Execution Context, which is a pool of threads</h4>
+</div>
+<div id="outline-container-org51d5f1c" class="outline-4">
+<h4 id="org51d5f1c"><span class="section-number-4">5.1.2</span> <a href="playground/akka-cookbook/src/main/scala/AddFuture.scala">AddFuture.scala</a></h4>
+</div>
+</div>
+<div id="outline-container-org0f47970" class="outline-3">
+<h3 id="org0f47970"><span class="section-number-3">5.2</span> Send a message to an actor and wait with a future</h3>
+<div class="outline-text-3" id="text-5-2">
+</div>
+<div id="outline-container-orgc176d7f" class="outline-4">
+<h4 id="orgc176d7f"><span class="section-number-4">5.2.1</span> <a href="playground/akka-cookbook/src/main/scala/FutureWithActor.scala">FutureWithActor.scala</a></h4>
+</div>
+</div>
+<div id="outline-container-orgdb77a5b" class="outline-3">
+<h3 id="orgdb77a5b"><span class="section-number-3">5.3</span> <a href="playground/akka-cookbook/src/main/scala/FutureInsideActor.scala">FutureInsideActor.scala</a></h3>
+</div>
+<div id="outline-container-org5029c12" class="outline-3">
+<h3 id="org5029c12"><span class="section-number-3">5.4</span> Callback</h3>
+<div class="outline-text-3" id="text-5-4">
+</div>
+<div id="outline-container-orgb5d80e6" class="outline-4">
+<h4 id="orgb5d80e6"><span class="section-number-4">5.4.1</span> <a href="playground/akka-cookbook/src/main/scala/Callback.scala">Callback.scala</a></h4>
+</div>
+</div>
+<div id="outline-container-org84b96df" class="outline-3">
+<h3 id="org84b96df"><span class="section-number-3">5.5</span> For comprehensions</h3>
+<div class="outline-text-3" id="text-5-5">
+</div>
+<div id="outline-container-orgf4b0c40" class="outline-4">
+<h4 id="orgf4b0c40"><span class="section-number-4">5.5.1</span> <a href="playground/akka-cookbook/src/main/scala/Parallel.scala">Parallel.scala</a></h4>
+</div>
+</div>
+<div id="outline-container-orgc3a142e" class="outline-3">
+<h3 id="orgc3a142e"><span class="section-number-3">5.6</span> Agents are deprecated</h3>
+</div>
+</div>
+<div id="outline-container-org4550990" class="outline-2">
+<h2 id="org4550990"><span class="section-number-2">6</span> Persistence</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org45ec424" class="outline-3">
+<h3 id="org45ec424"><span class="section-number-3">6.1</span> <a href="playground/akka-cookbook/src/main/resources/reference.conf">reference.conf</a></h3>
+</div>
+<div id="outline-container-orged599d5" class="outline-3">
+<h3 id="orged599d5"><span class="section-number-3">6.2</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch6/SamplePersistenceModel.scala">SamplePersistenceModel.scala</a></h3>
+</div>
+<div id="outline-container-org243473f" class="outline-3">
+<h3 id="org243473f"><span class="section-number-3">6.3</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch6/SamplePersistenceActor.scala">SamplePersistenceActor.scala</a></h3>
+</div>
+<div id="outline-container-orgf4e786d" class="outline-3">
+<h3 id="orgf4e786d"><span class="section-number-3">6.4</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch6/SamplePersistenceApp.scala">SamplePersistenceApp.scala</a></h3>
+</div>
+<div id="outline-container-orgde8dbf4" class="outline-3">
+<h3 id="orgde8dbf4"><span class="section-number-3">6.5</span> </h3>
+<div class="outline-text-3" id="text-6-5">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch6.SamplePersistenceApp"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org8e2655c" class="outline-2">
+<h2 id="org8e2655c"><span class="section-number-2">7</span> Remote Actors and Scaling Applications</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-orgb5e1f61" class="outline-3">
+<h3 id="orgb5e1f61"><span class="section-number-3">7.1</span> Configuration files</h3>
+<div class="outline-text-3" id="text-7-1">
+</div>
+<div id="outline-container-org36b568f" class="outline-4">
+<h4 id="org36b568f"><span class="section-number-4">7.1.1</span> <a href="playground/akka-cookbook/src/main/resources/application.conf">application.conf</a></h4>
+</div>
+</div>
+<div id="outline-container-org041325a" class="outline-3">
+<h3 id="org041325a"><span class="section-number-3">7.2</span> Remote actors on a different "Machine"</h3>
+<div class="outline-text-3" id="text-7-2">
+</div>
+<div id="outline-container-org58e3a60" class="outline-4">
+<h4 id="org58e3a60"><span class="section-number-4">7.2.1</span> <a href="playground/akka-cookbook/src/main/resources/application-1.conf">application-1.conf</a></h4>
+</div>
+<div id="outline-container-orgd8ae42b" class="outline-4">
+<h4 id="orgd8ae42b"><span class="section-number-4">7.2.2</span> <a href="playground/akka-cookbook/src/main/resources/application-2.conf">application-2.conf</a></h4>
+</div>
+<div id="outline-container-orgcc6e21b" class="outline-4">
+<h4 id="orgcc6e21b"><span class="section-number-4">7.2.3</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/RemotingApplication.scala">RemotingApplication.scala</a></h4>
+</div>
+<div id="outline-container-org3c80081" class="outline-4">
+<h4 id="org3c80081"><span class="section-number-4">7.2.4</span> </h4>
+<div class="outline-text-4" id="text-7-2-4">
+<div class="org-src-container">
+<pre class="src src-bash">sbt -Dconfig.resource=application-1.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.HelloAkkaRemoting1"</span>
+sbt -Dconfig.resource=application-2.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.HelloAkkaRemoting2"</span> </pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org64dfa13" class="outline-3">
+<h3 id="org64dfa13"><span class="section-number-3">7.3</span> Looking up remote actors</h3>
+<div class="outline-text-3" id="text-7-3">
+</div>
+<div id="outline-container-orgf61a651" class="outline-4">
+<h4 id="orgf61a651"><span class="section-number-4">7.3.1</span> The first call creates an actor system, and a SimpleActor in it</h4>
+</div>
+<div id="outline-container-org8138033" class="outline-4">
+<h4 id="org8138033"><span class="section-number-4">7.3.2</span> The second call contacts the first node, and retrieves an actor reference in the first node</h4>
+</div>
+<div id="outline-container-org4519689" class="outline-4">
+<h4 id="org4519689"><span class="section-number-4">7.3.3</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/LookingUpRemoteApplication.scala">LookingUpRemoteApplication.scala</a></h4>
+</div>
+<div id="outline-container-org875a7d9" class="outline-4">
+<h4 id="org875a7d9"><span class="section-number-4">7.3.4</span> </h4>
+<div class="outline-text-4" id="text-7-3-4">
+<div class="org-src-container">
+<pre class="src src-bash">sbt -Dconfig.resource=application-2.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.LookingUpRemoteActors"</span> 
+sbt -Dconfig.resource=application-1.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.LookingUpActorSelection"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org5ab53bd" class="outline-3">
+<h3 id="org5ab53bd"><span class="section-number-3">7.4</span> Deploy remote actors</h3>
+<div class="outline-text-3" id="text-7-4">
+</div>
+<div id="outline-container-orgf3d1127" class="outline-4">
+<h4 id="orgf3d1127"><span class="section-number-4">7.4.1</span> First call creates an actor system</h4>
+</div>
+<div id="outline-container-org2336186" class="outline-4">
+<h4 id="org2336186"><span class="section-number-4">7.4.2</span> Second call create an actor on the first actor system</h4>
+</div>
+<div id="outline-container-org5043a68" class="outline-4">
+<h4 id="org5043a68"><span class="section-number-4">7.4.3</span> </h4>
+<div class="outline-text-4" id="text-7-4-3">
+<div class="org-src-container">
+<pre class="src src-bash">sbt -Dconfig.resource=application-1.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.RemoteActorsProgrammatically1"</span> 
+sbt -Dconfig.resource=application-2.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.RemoteActorsProgrammatically2"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org70b56df" class="outline-3">
+<h3 id="org70b56df"><span class="section-number-3">7.5</span> Scaling out an application</h3>
+<div class="outline-text-3" id="text-7-5">
+</div>
+<div id="outline-container-org7d39e12" class="outline-4">
+<h4 id="org7d39e12"><span class="section-number-4">7.5.1</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/WorkerActor.scala">WorkerActor.scala</a></h4>
+</div>
+<div id="outline-container-orgf4d7357" class="outline-4">
+<h4 id="orgf4d7357"><span class="section-number-4">7.5.2</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/ScalingOutApplication.scala">ScalingOutApplication.scala</a></h4>
+</div>
+<div id="outline-container-org28c45dd" class="outline-4">
+<h4 id="org28c45dd"><span class="section-number-4">7.5.3</span> </h4>
+<div class="outline-text-4" id="text-7-5-3">
+<div class="org-src-container">
+<pre class="src src-bash">sbt -Dconfig.resource=application-1.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.ScalingOutMaster"</span> 
+sbt -Dconfig.resource=application-2.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.ScalingOutWorker"</span>
+sbt -Dconfig.resource=application-3.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.ScalingOutWorker"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org56906a5" class="outline-3">
+<h3 id="org56906a5"><span class="section-number-3">7.6</span> Chat application</h3>
+<div class="outline-text-3" id="text-7-6">
+</div>
+<div id="outline-container-org2812ef3" class="outline-4">
+<h4 id="org2812ef3"><span class="section-number-4">7.6.1</span> A server hold all the clients and takes care of broadcasting messages</h4>
+<div class="outline-text-4" id="text-7-6-1">
+<div class="org-src-container">
+<pre class="src src-bash">sbt -Dconfig.resource=application-1.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.ChatServerApplication"</span> 
+sbt -Dconfig.resource=application-2.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.ChatClientApplication"</span>
+sbt -Dconfig.resource=application-3.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.ChatClientApplication"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge51c860" class="outline-2">
+<h2 id="orge51c860"><span class="section-number-2">8</span> Clustering and Sharding</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org26e7823" class="outline-3">
+<h3 id="org26e7823"><span class="section-number-3">8.1</span> Configuration</h3>
+<div class="outline-text-3" id="text-8-1">
+</div>
+<div id="outline-container-org782e5bb" class="outline-4">
+<h4 id="org782e5bb"><span class="section-number-4">8.1.1</span> <a href="playground/akka-cookbook/src/main/resources/application-cluster-generic.conf">application-cluster-generic.conf</a></h4>
+</div>
+</div>
+<div id="outline-container-org2eb5b7a" class="outline-3">
+<h3 id="org2eb5b7a"><span class="section-number-3">8.2</span> Distributed Pub/Sub</h3>
+<div class="outline-text-3" id="text-8-2">
+</div>
+<div id="outline-container-org82db661" class="outline-4">
+<h4 id="org82db661"><span class="section-number-4">8.2.1</span> <a href="playground/akka-cookbook/src/main/resources/application-cluster-1.conf">application-cluster-1.conf</a></h4>
+</div>
+<div id="outline-container-org0935ffb" class="outline-4">
+<h4 id="org0935ffb"><span class="section-number-4">8.2.2</span> <a href="playground/akka-cookbook/src/main/resources/application-cluster-2.conf">application-cluster-2.conf</a></h4>
+</div>
+<div id="outline-container-org547a188" class="outline-4">
+<h4 id="org547a188"><span class="section-number-4">8.2.3</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/NotificationPublisher.scala">NotificationPublisher.scala</a></h4>
+</div>
+<div id="outline-container-org3d26048" class="outline-4">
+<h4 id="org3d26048"><span class="section-number-4">8.2.4</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/NotificationSubscriber.scala">NotificationSubscriber.scala</a></h4>
+</div>
+<div id="outline-container-orgd0fa400" class="outline-4">
+<h4 id="orgd0fa400"><span class="section-number-4">8.2.5</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/DistributedPubSubApplication.scala">DistributedPubSubApplication.scala</a></h4>
+</div>
+<div id="outline-container-orgb7ff416" class="outline-4">
+<h4 id="orgb7ff416"><span class="section-number-4">8.2.6</span> </h4>
+<div class="outline-text-4" id="text-8-2-6">
+<div class="org-src-container">
+<pre class="src src-bash">sbt -Dconfig.resource=application-cluster-1.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.DistributedPubSubApplication"</span> 
+sbt -Dconfig.resource=application-cluster-2.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.DistributedPubSubApplication"</span> </pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org32eb057" class="outline-3">
+<h3 id="org32eb057"><span class="section-number-3">8.3</span> Sharding</h3>
+<div class="outline-text-3" id="text-8-3">
+</div>
+<div id="outline-container-org43ceb87" class="outline-4">
+<h4 id="org43ceb87"><span class="section-number-4">8.3.1</span> <a href="playground/akka-cookbook/src/main/resources/application-cluster-shrading-1.conf">application-cluster-shrading-1.conf</a></h4>
+</div>
+<div id="outline-container-org0e170b0" class="outline-4">
+<h4 id="org0e170b0"><span class="section-number-4">8.3.2</span> <a href="playground/akka-cookbook/src/main/resources/application-cluster-shrading-2.conf">application-cluster-shrading-2.conf</a></h4>
+</div>
+<div id="outline-container-org4ee27e7" class="outline-4">
+<h4 id="org4ee27e7"><span class="section-number-4">8.3.3</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/TemperatureActor.scala">TemperatureActor.scala</a></h4>
+</div>
+<div id="outline-container-org509b47a" class="outline-4">
+<h4 id="org509b47a"><span class="section-number-4">8.3.4</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/ClusterShardingApplication.scala">ClusterShardingApplication.scala</a></h4>
+</div>
+<div id="outline-container-org2617274" class="outline-4">
+<h4 id="org2617274"><span class="section-number-4">8.3.5</span> </h4>
+<div class="outline-text-4" id="text-8-3-5">
+<div class="org-src-container">
+<pre class="src src-bash">sbt -Dconfig.resource=application-cluster-sharding-1.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.ClusterShardingApplication"</span> 
+sbt -Dconfig.resource=application-cluster-sharding-2.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.ClusterShardingApplication"</span> </pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org4b7194a" class="outline-2">
+<h2 id="org4b7194a"><span class="section-number-2">9</span> Akka Patterns</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-org806c115" class="outline-3">
+<h3 id="org806c115"><span class="section-number-3">9.1</span> Master/Slave</h3>
+<div class="outline-text-3" id="text-9-1">
+</div>
+<div id="outline-container-org1a220b5" class="outline-4">
+<h4 id="org1a220b5"><span class="section-number-4">9.1.1</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/MasterWorkPulling.scala">MasterWorkPulling.scala</a></h4>
+</div>
+<div id="outline-container-org8986a6b" class="outline-4">
+<h4 id="org8986a6b"><span class="section-number-4">9.1.2</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/WorkerWorkPulling.scala">WorkerWorkPulling.scala</a></h4>
+</div>
+<div id="outline-container-org2d04de4" class="outline-4">
+<h4 id="org2d04de4"><span class="section-number-4">9.1.3</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/GeneratorWorkPulling.scala">GeneratorWorkPulling.scala</a></h4>
+</div>
+<div id="outline-container-org9de3663" class="outline-4">
+<h4 id="org9de3663"><span class="section-number-4">9.1.4</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/WorkPullingApp.scala">WorkerPullingApp.scala</a></h4>
+</div>
+<div id="outline-container-org6bda152" class="outline-4">
+<h4 id="org6bda152"><span class="section-number-4">9.1.5</span> </h4>
+<div class="outline-text-4" id="text-9-1-5">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch10.WorkPullingApp"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org3f577ef" class="outline-3">
+<h3 id="org3f577ef"><span class="section-number-3">9.2</span> Ordered Termination</h3>
+<div class="outline-text-3" id="text-9-2">
+</div>
+<div id="outline-container-orgd1fa6b3" class="outline-4">
+<h4 id="orgd1fa6b3"><span class="section-number-4">9.2.1</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ServiceHandler.scala">ServiceHandler.scala</a></h4>
+</div>
+<div id="outline-container-org6e70c38" class="outline-4">
+<h4 id="org6e70c38"><span class="section-number-4">9.2.2</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ServicesManager.scala">ServiceManager.scala</a></h4>
+</div>
+<div id="outline-container-orge4e2680" class="outline-4">
+<h4 id="orge4e2680"><span class="section-number-4">9.2.3</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/OrderedKiller.scala">OrderedKiller.scala</a></h4>
+</div>
+<div id="outline-container-org8746981" class="outline-4">
+<h4 id="org8746981"><span class="section-number-4">9.2.4</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/OrderedTerminationApp.scala">OrderedTerminationApp.scala</a></h4>
+</div>
+<div id="outline-container-org9fdbe80" class="outline-4">
+<h4 id="org9fdbe80"><span class="section-number-4">9.2.5</span> </h4>
+<div class="outline-text-4" id="text-9-2-5">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch10.OrderedTerminationApp"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org0c83c8f" class="outline-3">
+<h3 id="org0c83c8f"><span class="section-number-3">9.3</span> Shutdown</h3>
+<div class="outline-text-3" id="text-9-3">
+</div>
+<div id="outline-container-org1fc9532" class="outline-4">
+<h4 id="org1fc9532"><span class="section-number-4">9.3.1</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/Reaper.scala">Reaper.scala</a></h4>
+</div>
+<div id="outline-container-org28da48c" class="outline-4">
+<h4 id="org28da48c"><span class="section-number-4">9.3.2</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ReaperAwareActor.scala">ReaperAwareActor.scala</a></h4>
+</div>
+<div id="outline-container-orgd4ad6a0" class="outline-4">
+<h4 id="orgd4ad6a0"><span class="section-number-4">9.3.3</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ShutdownPatternWorker.scala">ShutdownPatternWorker.scala</a></h4>
+</div>
+<div id="outline-container-org54e34b1" class="outline-4">
+<h4 id="org54e34b1"><span class="section-number-4">9.3.4</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ShutdownPatternMaster.scala">ShutdownPatternMaster.scala</a></h4>
+</div>
+<div id="outline-container-orgf4a999b" class="outline-4">
+<h4 id="orgf4a999b"><span class="section-number-4">9.3.5</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ShutdownPatternApp.scala">ShutdownPatternApp.scala</a></h4>
+</div>
+<div id="outline-container-orgc8c2a86" class="outline-4">
+<h4 id="orgc8c2a86"><span class="section-number-4">9.3.6</span> </h4>
+<div class="outline-text-4" id="text-9-3-6">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch10.ShutdownPatternApp"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcf4b94b" class="outline-3">
+<h3 id="orgcf4b94b"><span class="section-number-3">9.4</span> LoadBalancing</h3>
+<div class="outline-text-3" id="text-9-4">
+</div>
+<div id="outline-container-org0e6866d" class="outline-4">
+<h4 id="org0e6866d"><span class="section-number-4">9.4.1</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/BalancedWorker.scala">BalancedWorker.scala</a></h4>
+</div>
+<div id="outline-container-org8f4cf6e" class="outline-4">
+<h4 id="org8f4cf6e"><span class="section-number-4">9.4.2</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/BalancingWorkApp.scala">BalancingWorkApp.scala</a></h4>
+</div>
+<div id="outline-container-org3e2ca3f" class="outline-4">
+<h4 id="org3e2ca3f"><span class="section-number-4">9.4.3</span> </h4>
+<div class="outline-text-4" id="text-9-4-3">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch10.BalancingDispatcherApp"</span></pre>
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch10.SmallestMailboxRouterApp"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org9205ab3" class="outline-3">
+<h3 id="org9205ab3"><span class="section-number-3">9.5</span> Finite State Machine</h3>
+<div class="outline-text-3" id="text-9-5">
+</div>
+<div id="outline-container-orge136f91" class="outline-4">
+<h4 id="orge136f91"><span class="section-number-4">9.5.1</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/FSMChangeSubscriber.scala">FSMChangeSubscriber.scala</a></h4>
+</div>
+<div id="outline-container-org3c7a1c6" class="outline-4">
+<h4 id="org3c7a1c6"><span class="section-number-4">9.5.2</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/TrafficLightFSM.scala">TrafficLightFSM.scala</a></h4>
+</div>
+<div id="outline-container-org14f39b2" class="outline-4">
+<h4 id="org14f39b2"><span class="section-number-4">9.5.3</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/FSMApp.scala">FSMApp.scala</a></h4>
+</div>
+<div id="outline-container-orga45c64c" class="outline-4">
+<h4 id="orga45c64c"><span class="section-number-4">9.5.4</span> </h4>
+<div class="outline-text-4" id="text-9-5-4">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch10.FSMApp"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org9edae37" class="outline-3">
+<h3 id="org9edae37"><span class="section-number-3">9.6</span> Enveloping</h3>
+<div class="outline-text-3" id="text-9-6">
+</div>
+<div id="outline-container-org0faa228" class="outline-4">
+<h4 id="org0faa228"><span class="section-number-4">9.6.1</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/EnvelopeReceiver.scala">EnvelopeReceive.scala</a></h4>
+</div>
+<div id="outline-container-orgadc5ecf" class="outline-4">
+<h4 id="orgadc5ecf"><span class="section-number-4">9.6.2</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/EnvelopingActor.scala">EnvelopingActor.scala</a></h4>
+</div>
+<div id="outline-container-orga87aeb1" class="outline-4">
+<h4 id="orga87aeb1"><span class="section-number-4">9.6.3</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/EnvelopingActorApp.scala">EnvelopingActorApp.scala</a></h4>
+</div>
+<div id="outline-container-orga414462" class="outline-4">
+<h4 id="orga414462"><span class="section-number-4">9.6.4</span> </h4>
+<div class="outline-text-4" id="text-9-6-4">
+<div class="org-src-container">
+<pre class="src src-bash">sbt <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch10.EnvelopingActorApp"</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org872367d" class="outline-2">
+<h2 id="org872367d"><span class="section-number-2">10</span> Akka in a Docker Image</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org5f8eb77" class="outline-3">
+<h3 id="org5f8eb77"><span class="section-number-3">10.1</span> Create a standalone application (.jar)</h3>
+<div class="outline-text-3" id="text-10-1">
+<div class="org-src-container">
+<pre class="src src-bash">sbt clean assembly</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5502ca1" class="outline-3">
+<h3 id="org5502ca1"><span class="section-number-3">10.2</span> Create a Docker image</h3>
+<div class="outline-text-3" id="text-10-2">
+</div>
+<div id="outline-container-org5ab9641" class="outline-4">
+<h4 id="org5ab9641"><span class="section-number-4">10.2.1</span> copy the jar to a different directory</h4>
+<div class="outline-text-4" id="text-10-2-1">
+<div class="org-src-container">
+<pre class="src src-bash">cp target/scala-2.12/akka-cookbook-assembly-0.1.0-SNAPSHOT.jar docker/akka-app.jar
+java -cp akka-app.jar gfp.ch1.AkkaActorSystem</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf899f78" class="outline-4">
+<h4 id="orgf899f78"><span class="section-number-4">10.2.2</span> Create a <a href="playground/akka-cookbook/docker/Dockerfile">Dockerfile</a></h4>
+</div>
+<div id="outline-container-org07db542" class="outline-4">
+<h4 id="org07db542"><span class="section-number-4">10.2.3</span> Create a Docker image</h4>
+<div class="outline-text-4" id="text-10-2-3">
+<div class="org-src-container">
+<pre class="src src-bash">docker build -t akka-app .</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9608cac" class="outline-4">
+<h4 id="org9608cac"><span class="section-number-4">10.2.4</span> Run a container with the image</h4>
+<div class="outline-text-4" id="text-10-2-4">
+<div class="org-src-container">
+<pre class="src src-bash">docker run -it akka-app</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org7865be6" class="outline-4">
+<h4 id="org7865be6"><span class="section-number-4">10.2.5</span> Stop/Remove the container and remove the image</h4>
+<div class="outline-text-4" id="text-10-2-5">
+<div class="org-src-container">
+<pre class="src src-bash">docker rm <span style="color: #ff8c00; font-size: 9.959999999999999pt;">(</span>docker ps -aq<span style="color: #ff8c00; font-size: 9.959999999999999pt;">)</span>
+docker rmi akka-app</pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org0961dc0" class="outline-2">
+<h2 id="org0961dc0"><span class="section-number-2">11</span> Launch EC2 instances</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org532c743" class="outline-3">
+<h3 id="org532c743"><span class="section-number-3">11.1</span> <a href="aws-demo/README.html">Start an AWS instance</a></h3>
+</div>
+</div>
+<div id="outline-container-orge2d4fa6" class="outline-2">
+<h2 id="orge2d4fa6"><span class="section-number-2">12</span> Akka on EC2</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org188d9dc" class="outline-3">
+<h3 id="org188d9dc"><span class="section-number-3">12.1</span> <a href="playground/akka-ec2/src/main/scala/net/chrisloy/akka/AkkaConfig.scala">AkkaConfig.scala</a></h3>
+</div>
+<div id="outline-container-orgb17de65" class="outline-3">
+<h3 id="orgb17de65"><span class="section-number-3">12.2</span> <a href="playground/akka-ec2/src/main/scala/net/chrisloy/akka/EC2.scala">EC2.scala</a></h3>
+</div>
+<div id="outline-container-orgede18c3" class="outline-3">
+<h3 id="orgede18c3"><span class="section-number-3">12.3</span> <a href="playground/akka-ec2/src/main/scala/net/chrisloy/akka/BroadcastActor.scala">BroadcastActor.scala</a></h3>
+</div>
+<div id="outline-container-orge485cba" class="outline-3">
+<h3 id="orge485cba"><span class="section-number-3">12.4</span> <a href="playground/akka-ec2/src/main/scala/net/chrisloy/akka/Main.scala">Main.scala</a></h3>
+</div>
+<div id="outline-container-org2f66691" class="outline-3">
+<h3 id="org2f66691"><span class="section-number-3">12.5</span> Compile</h3>
+<div class="outline-text-3" id="text-12-5">
+<div class="org-src-container">
+<pre class="src src-bash">sbt clean
+sbt assembly</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org96e989b" class="outline-3">
+<h3 id="org96e989b"><span class="section-number-3">12.6</span> Run Locally</h3>
+<div class="outline-text-3" id="text-12-6">
+<div class="org-src-container">
+<pre class="src src-bash">java -jar -Dakka.port=2551 target/scala-2.12/akka-ec2-assembly-0.1.0-SNAPSHOT.jar
+java -jar -Dakka.port=2552 target/scala-2.12/akka-ec2-assembly-0.1.0-SNAPSHOT.jar
+java -jar -Dakka.port=2553 target/scala-2.12/akka-ec2-assembly-0.1.0-SNAPSHOT.jar
+java -jar -Dakka.port=2554 target/scala-2.12/akka-ec2-assembly-0.1.0-SNAPSHOT.jar</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org83791bf" class="outline-3">
+<h3 id="org83791bf"><span class="section-number-3">12.7</span> Run in an EC2 Autoscaling Group</h3>
+<div class="outline-text-3" id="text-12-7">
+</div>
+<div id="outline-container-orgb2973c1" class="outline-4">
+<h4 id="orgb2973c1"><span class="section-number-4">12.7.1</span> Go to EC2 Autoscaling Gropus (<a href="https://eu-west-1.console.aws.amazon.com/ec2/autoscaling/home?region=eu-west-1#AutoScalingGroups:id=akka-ec2-group;view=details">EC2 Management Console</a>)</h4>
+</div>
+<div id="outline-container-org0965399" class="outline-4">
+<h4 id="org0965399"><span class="section-number-4">12.7.2</span> Increment the desired/min/max instance count</h4>
+</div>
+<div id="outline-container-org6b3da02" class="outline-4">
+<h4 id="org6b3da02"><span class="section-number-4">12.7.3</span> Navitage to Running Instances (<a href="https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#Instances:sort=instanceId">EC2 Management Console</a>)</h4>
+</div>
+<div id="outline-container-orge52dd6e" class="outline-4">
+<h4 id="orge52dd6e"><span class="section-number-4">12.7.4</span> Get public IP addresses of running instances and install java</h4>
+<div class="outline-text-4" id="text-12-7-4">
+</div>
+<ol class="org-ol">
+<li><a id="orgc3a5544"></a>log in and install java<br />
+<div class="outline-text-5" id="text-12-7-4-1">
+<div class="org-src-container">
+<pre class="src src-bash">ssh -i /Users/guspet02/teaching/2019/DNA/CloudC/aws-demo/Dna-Demo.pem ec2-user@54.229.247.127
+sudo yum -y install java-1.8.0-openjdk.x86_64</pre>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgca1fdcb" class="outline-4">
+<h4 id="orgca1fdcb"><span class="section-number-4">12.7.5</span> Copy the .jar file to each of the instances</h4>
+<div class="outline-text-4" id="text-12-7-5">
+</div>
+<ol class="org-ol">
+<li><a id="orgd825d13"></a><br />
+<div class="outline-text-5" id="text-12-7-5-1">
+<div class="org-src-container">
+<pre class="src src-bash">scp -i /Users/guspet02/teaching/2019/DNA/CloudC/aws-demo/Dna-Demo.pem target/scala-2.12/akka-ec2-assembly-0.1.0-SNAPSHOT.jar  ec2-user@54.229.247.127:~/</pre>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org4b52f1e" class="outline-4">
+<h4 id="org4b52f1e"><span class="section-number-4">12.7.6</span> Launch the application in each of the instances</h4>
+<div class="outline-text-4" id="text-12-7-6">
+</div>
+<ol class="org-ol">
+<li><a id="org92c1a5b"></a><br />
+<div class="outline-text-5" id="text-12-7-6-1">
+<div class="org-src-container">
+<pre class="src src-bash">ssh -i /Users/guspet02/teaching/2019/DNA/CloudC/aws-demo/Dna-Demo.pem ec2-user@54.229.247.127
+java -jar akka-ec2-assembly-0.1.0-SNAPSHOT.jar</pre>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org003b739" class="outline-4">
+<h4 id="org003b739"><span class="section-number-4">12.7.7</span> Add a new node and repeat</h4>
+</div>
+<div id="outline-container-orgd74ffbc" class="outline-4">
+<h4 id="orgd74ffbc"><span class="section-number-4">12.7.8</span> Shutdown the scaling group</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org636f4df" class="outline-2">
+<h2 id="org636f4df"><span class="section-number-2">13</span> Akka on Docker</h2>
+<div class="outline-text-2" id="text-13">
+</div>
+<div id="outline-container-org6155e2e" class="outline-3">
+<h3 id="org6155e2e"><span class="section-number-3">13.1</span> Explore the application:</h3>
+<div class="outline-text-3" id="text-13-1">
+</div>
+<div id="outline-container-org3e0e1b2" class="outline-4">
+<h4 id="org3e0e1b2"><span class="section-number-4">13.1.1</span> <a href="playground/activator-akka-docker/src/main/scala/com/example/Main.scala">Main.scala</a></h4>
+</div>
+<div id="outline-container-org3b8cc0e" class="outline-4">
+<h4 id="org3b8cc0e"><span class="section-number-4">13.1.2</span> Create the docker image</h4>
+<div class="outline-text-4" id="text-13-1-2">
+<div class="org-src-container">
+<pre class="src src-bash">sbt docker:publishLocal</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6ff1ffe" class="outline-4">
+<h4 id="org6ff1ffe"><span class="section-number-4">13.1.3</span> List image names and pick the right image</h4>
+<div class="outline-text-4" id="text-13-1-3">
+<div class="org-src-container">
+<pre class="src src-bash">docker images</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8ca26f9" class="outline-4">
+<h4 id="org8ca26f9"><span class="section-number-4">13.1.4</span> Start a first seed node and get the seed node ip</h4>
+<div class="outline-text-4" id="text-13-1-4">
+<div class="org-src-container">
+<pre class="src src-bash">docker run --name seed-1 akka-docker:2.3.10 --seed
+docker exec -it seed-1 ip addr show</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org29bd137" class="outline-4">
+<h4 id="org29bd137"><span class="section-number-4">13.1.5</span> Start a second seed node using the address of the first one as a seed</h4>
+<div class="outline-text-4" id="text-13-1-5">
+<div class="org-src-container">
+<pre class="src src-bash">docker run --name seed-2 akka-docker:2.3.10 --seed 172.17.0.2:2551
+docker exec -it seed-2 ip addr show</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb3b2d28" class="outline-4">
+<h4 id="orgb3b2d28"><span class="section-number-4">13.1.6</span> Start as many worker nodes as necessary</h4>
+<div class="outline-text-4" id="text-13-1-6">
+<div class="org-src-container">
+<pre class="src src-bash">docker run --name node-1 akka-docker:2.3.10 172.17.0.2:2551 172.17.0.3:2551
+docker run --name node-2 akka-docker:2.3.10 172.17.0.2:2551 172.17.0.3:2551</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdc497e0" class="outline-4">
+<h4 id="orgdc497e0"><span class="section-number-4">13.1.7</span> Remove all the nodes</h4>
+<div class="outline-text-4" id="text-13-1-7">
+<div class="org-src-container">
+<pre class="src src-bash">docker rm <span style="color: #ff8c00; font-size: 9.959999999999999pt;">(</span>docker ps -aq<span style="color: #ff8c00; font-size: 9.959999999999999pt;">)</span></pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org2470718" class="outline-2">
+<h2 id="org2470718"><span class="section-number-2">14</span> Akka on Kubernetes</h2>
+<div class="outline-text-2" id="text-14">
+</div>
+<div id="outline-container-org07e6492" class="outline-3">
+<h3 id="org07e6492"><span class="section-number-3">14.1</span> <a href="playground/akka-k8s/akka-simple-cluster-k8s/src/main/scala/com/softwaremill/akkaSimpleCluster/Main.scala">Main.scala</a></h3>
+</div>
+<div id="outline-container-org1bf4556" class="outline-3">
+<h3 id="org1bf4556"><span class="section-number-3">14.2</span> k8s</h3>
+<div class="outline-text-3" id="text-14-2">
+</div>
+<div id="outline-container-orgbe192b9" class="outline-4">
+<h4 id="orgbe192b9"><span class="section-number-4">14.2.1</span> <a href="playground/akka-k8s/akka-simple-cluster-k8s/k8s/simple-akka-cluster-deployment.yml">simple-akka-cluster-deployment.yml</a></h4>
+</div>
+<div id="outline-container-org5288118" class="outline-4">
+<h4 id="org5288118"><span class="section-number-4">14.2.2</span> <a href="playground/akka-k8s/akka-simple-cluster-k8s/k8s/simple-akka-cluster-rbac.yml">simple-akka-cluster-rbac.yml</a></h4>
+</div>
+<div id="outline-container-org7c9598b" class="outline-4">
+<h4 id="org7c9598b"><span class="section-number-4">14.2.3</span> <a href="playground/akka-k8s/akka-simple-cluster-k8s/k8s/simple-akka-cluster-service.yml">simple-akka-cluster-service.yml</a></h4>
+</div>
+</div>
+<div id="outline-container-orga7874f9" class="outline-3">
+<h3 id="orga7874f9"><span class="section-number-3">14.3</span> Running the application on Minikube</h3>
+<div class="outline-text-3" id="text-14-3">
+</div>
+<div id="outline-container-org320df90" class="outline-4">
+<h4 id="org320df90"><span class="section-number-4">14.3.1</span> Start the minikube (Simulates a kuberenetes equipped cluster) and link to its docker engine</h4>
+<div class="outline-text-4" id="text-14-3-1">
+<div class="org-src-container">
+<pre class="src src-bash">minikube start
+<span style="color: #FF80F4; font-size: 9.959999999999999pt;">eval</span> <span style="color: #ff8c00; font-size: 9.959999999999999pt;">(</span>minikube docker-env<span style="color: #ff8c00; font-size: 9.959999999999999pt;">)</span></pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5b2d8b8" class="outline-4">
+<h4 id="org5b2d8b8"><span class="section-number-4">14.3.2</span> Publish the docker images to the minikube</h4>
+<div class="outline-text-4" id="text-14-3-2">
+<div class="org-src-container">
+<pre class="src src-bash">sbt docker:publishLocal
+docker images</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3ca7b5c" class="outline-4">
+<h4 id="org3ca7b5c"><span class="section-number-4">14.3.3</span> Create a service account and role in kuberenetes</h4>
+<div class="outline-text-4" id="text-14-3-3">
+<div class="org-src-container">
+<pre class="src src-bash">kubectl create -f k8s/simple-akka-cluster-rbac.yml</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org93f412f" class="outline-4">
+<h4 id="org93f412f"><span class="section-number-4">14.3.4</span> Create a deployment</h4>
+<div class="outline-text-4" id="text-14-3-4">
+<div class="org-src-container">
+<pre class="src src-bash">kubectl create -f k8s/simple-akka-cluster-deployment.yml</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org150918d" class="outline-4">
+<h4 id="org150918d"><span class="section-number-4">14.3.5</span> Create a service</h4>
+<div class="outline-text-4" id="text-14-3-5">
+<div class="org-src-container">
+<pre class="src src-bash">kubectl create -f k8s/simple-akka-cluster-service.yml</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org41c10da" class="outline-4">
+<h4 id="org41c10da"><span class="section-number-4">14.3.6</span> Open minikube's dashboard</h4>
+<div class="outline-text-4" id="text-14-3-6">
+<div class="org-src-container">
+<pre class="src src-bash">minikube dashboard</pre>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdc479a4" class="outline-4">
+<h4 id="orgdc479a4"><span class="section-number-4">14.3.7</span> Get the port of the akka http management API</h4>
+<div class="outline-text-4" id="text-14-3-7">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #FD971F; font-size: 9.959999999999999pt;">MANAGEMENT_PORT</span>=<span style="color: #ff8c00; font-size: 9.959999999999999pt;">(</span>kubectl get svc akka-simple-cluster -ojsonpath=<span style="color: #EEDC82; font-size: 9.959999999999999pt;">"{.spec.ports[?(@.name==\"management\")].nodePort}"</span><span style="color: #ff8c00; font-size: 9.959999999999999pt;">)</span>
+curl http://<span style="color: #ff8c00; font-size: 9.959999999999999pt;">(</span>minikube ip<span style="color: #ff8c00; font-size: 9.959999999999999pt;">)</span>:$<span style="color: #FD971F; font-size: 9.959999999999999pt;">MANAGEMENT_PORT</span>/cluster/members | jq</pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgae2132e" class="outline-2">
+<h2 id="orgae2132e"><span class="section-number-2">15</span> Replicated Data</h2>
+<div class="outline-text-2" id="text-15">
+</div>
+<div id="outline-container-org3eda70b" class="outline-3">
+<h3 id="org3eda70b"><span class="section-number-3">15.1</span> CRDTs</h3>
+<div class="outline-text-3" id="text-15-1">
+</div>
+<div id="outline-container-org1953878" class="outline-4">
+<h4 id="org1953878"><span class="section-number-4">15.1.1</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/SusbcriptionManager.scala">SubscriptionManager.scala</a></h4>
+</div>
+<div id="outline-container-org30ec815" class="outline-4">
+<h4 id="org30ec815"><span class="section-number-4">15.1.2</span> <a href="playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/DistributedDataApplication.scala">DistributedDataApplication.scala</a></h4>
+</div>
+<div id="outline-container-org2838b56" class="outline-4">
+<h4 id="org2838b56"><span class="section-number-4">15.1.3</span> </h4>
+<div class="outline-text-4" id="text-15-1-3">
+<div class="org-src-container">
+<pre class="src src-bash">sbt -Dconfig.resource=application-cluster-1.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.DistributedDataApplication"</span> 
+sbt -Dconfig.resource=application-cluster-2.conf <span style="color: #EEDC82; font-size: 9.959999999999999pt;">"runMain io.github.gpetri.ch7.DistributedDataApplication"</span> </pre>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Gustavo Petri</p>
+<p class="date">Created: 2019-03-08 Fri 15:30</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

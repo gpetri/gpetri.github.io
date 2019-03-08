@@ -1,0 +1,121 @@
+* Create a key pair for the VM: 
+** Create a key pair
+#+BEGIN_SRC bash
+aws ec2 create-key-pair --key-name Dna-Demo --query 'KeyMaterial' --output text > Dna-Demo.pem
+chmod 400 Dna-Demo.pem
+#+END_SRC
+** Show key pair
+#+BEGIN_SRC bash
+aws ec2 describe-key-pairs --key-name Dna-Demo
+#+END_SRC
+** Remove key pair
+#+BEGIN_SRC bash
+aws ec2 delete-key-pair --key-name MyKeyPair
+#+END_SRC
+* Create a security group (EC2 Classic -- no VPC): 
+** Create the security group:
+#+BEGIN_SRC bash
+aws ec2 create-security-group --group-name dna-sg --description "DNA demo security group"
+#+END_SRC
+- returns: "sg-021bb5d39adb14a0f"
+- Option: We can additionally create it for a specific VPC:
+  #+BEGIN_SRC bash
+  aws ec2 create-security-group --group-name dna-sg --description "DNA demo security group" --vpc-id vpc-dna-demo
+  #+END_SRC
+** Show security group:
+#+BEGIN_SRC bash
+aws ec2 describe-security-groups --group-names dna-sg
+#+END_SRC
+** Add rules to the security group:
+- Find our IP for fine-grained control (we will allow all IPs, but it is a bad idea)
+#+BEGIN_SRC bash
+curl https://checkip.amazonaws.com
+#+END_SRC
+- Rule for ssh (port 22)
+#+BEGIN_SRC bash
+aws ec2 authorize-security-group-ingress --group-id sg-0b722979e8a585422 --protocol tcp --port 22 --cidr 0.0.0.0/0
+#+END_SRC
+or
+#+BEGIN_SRC bash
+aws ec2 authorize-security-group-ingress --group-name dna-sg --protocol tcp --port 22 --cidr 203.0.113.0/24
+#+END_SRC
+-- Option: specify an ingress CIDR with --cidr 203.0.113.0/24
+- Check that rule has been applied:
+  #+BEGIN_SRC bash
+  aws ec2 create-security-group --group-name dna-sg --description "DNA demo security group" --vpc-id vpc-dna-demo
+  #+END_SRC
+** Remove security group:   
+#+BEGIN_SRC bash
+aws ec2 delete-security-group --group-name my-sg
+#+END_SRC
+* Launch an EC2 VM
+** Needs to have a predefined AMI (Amazon Machine Image). We will use t2.micro which is available with the free suscrpition
+- [[https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html][Finding a Linux AMI - Amazon Elastic Compute Cloud]]
+- Current amazon Linux AMI
+#+BEGIN_SRC bash
+aws ec2 describe-images --owners amazon --filters 'Name=name,Values=amzn-ami-hvm-????.??.?.????????-x86_64-gp2' 'Name=state,Values=available' --output json | jq -r '.Images | sort_by(.CreationDate) | last(.[]).ImageId'
+#+END_SRC
+** Launch a t2.micro
+#+BEGIN_SRC bash
+aws ec2 run-instances --image-id ami-08935252a36e25f85 --count 1 --instance-type t2.micro --key-name Dna-Demo --security-groups dna-sg
+#+END_SRC bash
+** Find the instance:
+- List all instances 
+#+BEGIN_SRC bash
+aws ec2 describe-instances --filters "Name=instance-type,Values=t2.micro" --query "Reservations[].Instances[].InstanceId"
+#+END_SRC
+- Get console output
+#+BEGIN_SRC bash
+aws ec2 get-console-output --instance-id i-0ee631fce9c98f120
+#+END_SRC 
+- Get public IP of the instance
+#+BEGIN_SRC bash
+aws ec2 describe-instances --instance-ids i-0ee631fce9c98f120 --query 'Reservations[*].Instances[*].PublicIpAddress' --output text
+#+END_SRC
+** Connect to the machine:
+#+BEGIN_SRC bash
+ssh -i Dna-Demo.pem ec2-user@52.16.253.195
+#+END_SRC
+** Terminate an instance:
+#+BEGIN_SRC bash
+aws ec2 terminate-instances --instance-ids i-0ee631fce9c98f120
+#+END_SRC
+* Attaching a volume:
+** Create a volume:
+- 80Gb, HDD (sc1)
+#+BEGIN_SRC bash
+aws ec2 create-volume --size 500 --region eu-west-1 --availability-zone eu-west-1a --volume-type sc1
+#+END_SRC
+- Get VolumeID: vol-02f6b108292161c13
+** Attach the volume to our instance:
+#+BEGIN_SRC bash
+aws ec2 attach-volume --volume-id vol-02f6b108292161c13 --instance-id i-0ee631fce9c98f120 --device /dev/sdf
+#+END_SRC
+** Setup the disk:
+- On the instance:
+#+BEGIN_SRC bash
+sudo mkfs -t ext4 /dev/sdf
+sudo mkdir /newvolume/
+sudo mount /dev/sdf /newvolume/
+sudo chmod 777 /newvolume
+cd /newvolume/
+df -h
+#+END_SRC
+* Terminate instance
+** Delete the volume
+- Detach
+#+BEGIN_SRC bash
+aws ec2 detach-volume --volume-id vol-02f6b108292161c13
+#+END_SRC
+- Delete
+#+BEGIN_SRC bash
+aws ec2 delete-volume --volume-id vol-02f6b108292161c13
+#+END_SRC
+** Terminate instance
+#+BEGIN_SRC bash
+aws ec2 terminate-instances --instance-id  i-0ee631fce9c98f120
+#+END_SRC
+** List all instances
+#+BEGIN_SRC bash
+aws ec2 describe-instances --filters "Name=instance-type,Values=t2.micro" --query "Reservations[].Instances[].InstanceId"
+#+END_SRC

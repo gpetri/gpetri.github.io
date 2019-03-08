@@ -1,0 +1,43 @@
+set name := 'akka-cookbook'
+set name := "akka-cookbook"
+last
+set version := "1.0"
+set scalaVersion := "2.12.8"
+session save
+run 
+run
+test:compile
+run
+test:compile
+run
+test:compile
+run
+test:compile
+run
+test:compile
+run
+clean
+run
+test:compile
+run
+test:compile
+run
+run
+test:compile
+help
+update
+test:compile
+compile
+akka-cookbook/compile:ensimeCompileOnly /Users/gpetri/teaching/2019/DNA/CloudC/playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/TemperatureActor.scala
+test:compile
+show discoveredMainClasses
+assembly
+run
+version
+help
+abput
+about
+run
+quit
+help
+exit

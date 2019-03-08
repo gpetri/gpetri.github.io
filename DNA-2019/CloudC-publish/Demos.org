@@ -1,0 +1,413 @@
+* JMM
+** Two threads in Java sharing memory
+** [[file:weak-memory/TSO.java][TSO.java]]
+#+BEGIN_SRC bash
+java -ea -server TSO
+#+END_SRC
+* Erlang
+** Simple Ping Pong applicatoin
+** [[file:erlang/mp.erl][message-passing.erl]]
+** Start pong server
+#+BEGIN_SRC bash
+erl -sname pong
+mp: start_pong().
+#+END_SRC
+** Start ping server
+#+BEGIN_SRC bash
+erl -sname ping
+mp: start_ping('pong@FVFX91RXHV2J').
+#+END_SRC
+* Starting up
+** SBT set up
+*** [[file:playground/akka-cookbook/build.sbt][build.sbt]]
+*** 
+#+BEGIN_SRC bash
+sbt update
+#+END_SRC
+** Hello World
+*** Creates an actor system
+*** Prints the url
+*** [[file:playground/akka-cookbook/src/main/scala/AkkaActors.scala][AkkaActors.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch1.AkkaActorSystem"
+#+END_SRC
+** Actor Local State and Behavior
+*** Creates a simple actor that keeps a counter
+*** Increments the counter on a message receive
+*** [[file:playground/akka-cookbook/src/main/scala/BehaviorAndState.scala][BehaviorAndState.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch1.BehaviorAndState"
+#+END_SRC
+*** Different messages
+** Waiting for a response
+*** A simple actor that receives a number, calculates Fibonacci and returns the value to the sender
+*** [[file:playground/akka-cookbook/src/main/scala/FiboActor.scala][FiboActor.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch1.FiboActorApp"
+#+END_SRC
+** Communicating two actors
+*** Extension of the example above, where a query actor makes the query and prints out the response
+*** [[file:playground/akka-cookbook/src/main/scala/Communication.scala][Communication.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch1.Communication"
+#+END_SRC
+** Become/Unbecome
+*** Allows an actor to change it's behavior according to its state
+*** [[file:playground/akka-cookbook/src/main/scala/BecomeUnbecome.scala][BecomeUnbecome.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch1.BecomeUnbecomeApp"
+#+END_SRC
+** Stop an actor
+*** Two ways to terminate an actor: 
+**** Sending it a Poisonpill (sender chooses to terminate)
+**** context.stop(self) Actor decides to shutdown after a message
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch1.ShutdownActorApp"
+#+END_SRC
+
+* Fault Tolerance
+** Supervision and Monitoring
+*** Parent Child creation
+**** The actor that creates an actor is its parent
+**** This can be seen no the path of the actor
+**** [[file:playground/akka-cookbook/src/main/scala/ParentChild.scala][ParentChild.scala]]
+**** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch2.ParentChildApp"
+#+END_SRC
+*** Actor Life Cycle
+**** Stages of Actors:
+- PreStart
+- Start
+- Stop
+- PostRestart
+**** [[file:playground/akka-cookbook/src/main/scala/ActorLifeCycle.scala][ActorLifeCycle.scala]]
+**** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch2.ActorLifeCycleApp"
+#+END_SRC
+*** Collecting answers
+**** We create an actor that will spawn children
+**** It will send messages to all of themn, and then will print their answers
+**** [[file:playground/akka-cookbook/src/main/scala/SendMessagesToChildren.scala][SendMessagesToChildren.scala]]
+**** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch2.SendMessagesToChildrenApp"
+#+END_SRC
+** Let it Crash!
+*** OneForOneStrategy
+**** If an actor fails, only that actor is restarted, resumed or escalated
+**** [[file:playground/akka-cookbook/src/main/scala/SupervisionStrategy.scala][SupervisionStrategy.scala]]
+**** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch2.SupervisionStrategyApp"
+#+END_SRC
+*** AllForOneStrategy
+**** The same is applied to all supervised actors if any one fails
+**** [[file:playground/akka-cookbook/src/main/scala/AllForOneStrategy.scala][AllForOneStrategy.scala]]
+**** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch2.AllForOneStrategyApp"
+#+END_SRC
+*** DeathWatch
+**** Monitoring an actor
+**** [[file:playground/akka-cookbook/src/main/scala/DeathWatch.scala][DeathWatch.scala]]
+**** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch2. DeathWatchApp"
+#+END_SRC
+* Futures
+** A simple future
+*** Futures are supported by an Execution Context, which is a pool of threads
+*** [[file:playground/akka-cookbook/src/main/scala/AddFuture.scala][AddFuture.scala]]
+** Send a message to an actor and wait with a future
+*** [[file:playground/akka-cookbook/src/main/scala/FutureWithActor.scala][FutureWithActor.scala]]
+** [[file:playground/akka-cookbook/src/main/scala/FutureInsideActor.scala][FutureInsideActor.scala]]
+** Callback
+*** [[file:playground/akka-cookbook/src/main/scala/Callback.scala][Callback.scala]]
+** For comprehensions
+*** [[file:playground/akka-cookbook/src/main/scala/Parallel.scala][Parallel.scala]]
+** Agents are deprecated
+* Persistence
+** [[file:playground/akka-cookbook/src/main/resources/reference.conf][reference.conf]]
+** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch6/SamplePersistenceModel.scala][SamplePersistenceModel.scala]]
+** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch6/SamplePersistenceActor.scala][SamplePersistenceActor.scala]]
+** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch6/SamplePersistenceApp.scala][SamplePersistenceApp.scala]]
+** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch6.SamplePersistenceApp"
+#+END_SRC 
+* Remote Actors and Scaling Applications
+** Configuration files
+*** [[file:playground/akka-cookbook/src/main/resources/application.conf][application.conf]]
+** Remote actors on a different "Machine"
+*** [[file:playground/akka-cookbook/src/main/resources/application-1.conf][application-1.conf]]
+*** [[file:playground/akka-cookbook/src/main/resources/application-2.conf][application-2.conf]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/RemotingApplication.scala][RemotingApplication.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt -Dconfig.resource=application-1.conf "runMain io.github.gpetri.ch7.HelloAkkaRemoting1"
+sbt -Dconfig.resource=application-2.conf "runMain io.github.gpetri.ch7.HelloAkkaRemoting2" 
+#+END_SRC 
+** Looking up remote actors
+*** The first call creates an actor system, and a SimpleActor in it
+*** The second call contacts the first node, and retrieves an actor reference in the first node
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/LookingUpRemoteApplication.scala][LookingUpRemoteApplication.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt -Dconfig.resource=application-2.conf "runMain io.github.gpetri.ch7.LookingUpRemoteActors" 
+sbt -Dconfig.resource=application-1.conf "runMain io.github.gpetri.ch7.LookingUpActorSelection"
+#+END_SRC 
+** Deploy remote actors
+*** First call creates an actor system
+*** Second call create an actor on the first actor system
+*** 
+#+BEGIN_SRC bash
+sbt -Dconfig.resource=application-1.conf "runMain io.github.gpetri.ch7.RemoteActorsProgrammatically1" 
+sbt -Dconfig.resource=application-2.conf "runMain io.github.gpetri.ch7.RemoteActorsProgrammatically2"
+#+END_SRC 
+** Scaling out an application
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/WorkerActor.scala][WorkerActor.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/ScalingOutApplication.scala][ScalingOutApplication.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt -Dconfig.resource=application-1.conf "runMain io.github.gpetri.ch7.ScalingOutMaster" 
+sbt -Dconfig.resource=application-2.conf "runMain io.github.gpetri.ch7.ScalingOutWorker"
+sbt -Dconfig.resource=application-3.conf "runMain io.github.gpetri.ch7.ScalingOutWorker"
+#+END_SRC 
+** Chat application
+*** A server hold all the clients and takes care of broadcasting messages
+#+BEGIN_SRC bash
+sbt -Dconfig.resource=application-1.conf "runMain io.github.gpetri.ch7.ChatServerApplication" 
+sbt -Dconfig.resource=application-2.conf "runMain io.github.gpetri.ch7.ChatClientApplication"
+sbt -Dconfig.resource=application-3.conf "runMain io.github.gpetri.ch7.ChatClientApplication"
+#+END_SRC 
+* Clustering and Sharding
+** Configuration
+*** [[file:playground/akka-cookbook/src/main/resources/application-cluster-generic.conf][application-cluster-generic.conf]]
+** Distributed Pub/Sub
+*** [[file:playground/akka-cookbook/src/main/resources/application-cluster-1.conf][application-cluster-1.conf]]
+*** [[file:playground/akka-cookbook/src/main/resources/application-cluster-2.conf][application-cluster-2.conf]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/NotificationPublisher.scala][NotificationPublisher.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/NotificationSubscriber.scala][NotificationSubscriber.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/DistributedPubSubApplication.scala][DistributedPubSubApplication.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt -Dconfig.resource=application-cluster-1.conf "runMain io.github.gpetri.ch7.DistributedPubSubApplication" 
+sbt -Dconfig.resource=application-cluster-2.conf "runMain io.github.gpetri.ch7.DistributedPubSubApplication" 
+#+END_SRC 
+** Sharding
+*** [[file:playground/akka-cookbook/src/main/resources/application-cluster-shrading-1.conf][application-cluster-shrading-1.conf]]
+*** [[file:playground/akka-cookbook/src/main/resources/application-cluster-shrading-2.conf][application-cluster-shrading-2.conf]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/TemperatureActor.scala][TemperatureActor.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/ClusterShardingApplication.scala][ClusterShardingApplication.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt -Dconfig.resource=application-cluster-sharding-1.conf "runMain io.github.gpetri.ch7.ClusterShardingApplication" 
+sbt -Dconfig.resource=application-cluster-sharding-2.conf "runMain io.github.gpetri.ch7.ClusterShardingApplication" 
+#+END_SRC 
+* Akka Patterns
+** Master/Slave
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/MasterWorkPulling.scala][MasterWorkPulling.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/WorkerWorkPulling.scala][WorkerWorkPulling.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/GeneratorWorkPulling.scala][GeneratorWorkPulling.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/WorkPullingApp.scala][WorkerPullingApp.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch10.WorkPullingApp"
+#+END_SRC
+** Ordered Termination
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ServiceHandler.scala][ServiceHandler.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ServicesManager.scala][ServiceManager.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/OrderedKiller.scala][OrderedKiller.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/OrderedTerminationApp.scala][OrderedTerminationApp.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch10.OrderedTerminationApp"
+#+END_SRC
+** Shutdown
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/Reaper.scala][Reaper.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ReaperAwareActor.scala][ReaperAwareActor.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ShutdownPatternWorker.scala][ShutdownPatternWorker.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ShutdownPatternMaster.scala][ShutdownPatternMaster.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/ShutdownPatternApp.scala][ShutdownPatternApp.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch10.ShutdownPatternApp"
+#+END_SRC
+** LoadBalancing
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/BalancedWorker.scala][BalancedWorker.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/BalancingWorkApp.scala][BalancingWorkApp.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch10.BalancingDispatcherApp"
+#+END_SRC
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch10.SmallestMailboxRouterApp"
+#+END_SRC
+** Finite State Machine
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/FSMChangeSubscriber.scala][FSMChangeSubscriber.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/TrafficLightFSM.scala][TrafficLightFSM.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/FSMApp.scala][FSMApp.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch10.FSMApp"
+#+END_SRC
+** Enveloping
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/EnvelopeReceiver.scala][EnvelopeReceive.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/EnvelopingActor.scala][EnvelopingActor.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch10/EnvelopingActorApp.scala][EnvelopingActorApp.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt "runMain io.github.gpetri.ch10.EnvelopingActorApp"
+#+END_SRC
+* Akka in a Docker Image
+** Create a standalone application (.jar)
+#+BEGIN_SRC bash
+sbt clean assembly
+#+END_SRC
+** Create a Docker image
+*** copy the jar to a different directory 
+#+BEGIN_SRC bash
+cp target/scala-2.12/akka-cookbook-assembly-0.1.0-SNAPSHOT.jar docker/akka-app.jar
+java -cp akka-app.jar gfp.ch1.AkkaActorSystem
+#+END_SRC
+*** Create a [[file:playground/akka-cookbook/docker/Dockerfile][Dockerfile]]
+*** Create a Docker image
+#+BEGIN_SRC bash
+docker build -t akka-app .
+#+END_SRC
+*** Run a container with the image
+#+BEGIN_SRC bash
+docker run -it akka-app
+#+END_SRC
+*** Stop/Remove the container and remove the image
+#+BEGIN_SRC bash
+docker rm (docker ps -aq)
+docker rmi akka-app
+#+END_SRC
+* Launch EC2 instances
+** [[file:aws-demo/README.org][Start an AWS instance]]
+* Akka on EC2
+** [[file:playground/akka-ec2/src/main/scala/net/chrisloy/akka/AkkaConfig.scala][AkkaConfig.scala]]
+** [[file:playground/akka-ec2/src/main/scala/net/chrisloy/akka/EC2.scala][EC2.scala]]
+** [[file:playground/akka-ec2/src/main/scala/net/chrisloy/akka/BroadcastActor.scala][BroadcastActor.scala]]
+** [[file:playground/akka-ec2/src/main/scala/net/chrisloy/akka/Main.scala][Main.scala]]
+** Compile
+#+BEGIN_SRC bash
+sbt clean
+sbt assembly
+#+END_SRC
+** Run Locally
+#+BEGIN_SRC bash
+java -jar -Dakka.port=2551 target/scala-2.12/akka-ec2-assembly-0.1.0-SNAPSHOT.jar
+java -jar -Dakka.port=2552 target/scala-2.12/akka-ec2-assembly-0.1.0-SNAPSHOT.jar
+java -jar -Dakka.port=2553 target/scala-2.12/akka-ec2-assembly-0.1.0-SNAPSHOT.jar
+java -jar -Dakka.port=2554 target/scala-2.12/akka-ec2-assembly-0.1.0-SNAPSHOT.jar
+#+END_SRC
+** Run in an EC2 Autoscaling Group
+*** Go to EC2 Autoscaling Gropus ([[https://eu-west-1.console.aws.amazon.com/ec2/autoscaling/home?region=eu-west-1#AutoScalingGroups:id=akka-ec2-group;view=details][EC2 Management Console]])
+*** Increment the desired/min/max instance count
+*** Navitage to Running Instances ([[https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#Instances:sort=instanceId][EC2 Management Console]])
+*** Get public IP addresses of running instances and install java
+**** log in and install java
+#+BEGIN_SRC bash
+ssh -i /Users/guspet02/teaching/2019/DNA/CloudC/aws-demo/Dna-Demo.pem ec2-user@54.229.247.127
+sudo yum -y install java-1.8.0-openjdk.x86_64
+#+END_SRC
+*** Copy the .jar file to each of the instances
+**** 
+#+BEGIN_SRC bash
+scp -i /Users/guspet02/teaching/2019/DNA/CloudC/aws-demo/Dna-Demo.pem target/scala-2.12/akka-ec2-assembly-0.1.0-SNAPSHOT.jar  ec2-user@54.229.247.127:~/
+#+END_SRC
+*** Launch the application in each of the instances
+**** 
+#+BEGIN_SRC bash
+ssh -i /Users/guspet02/teaching/2019/DNA/CloudC/aws-demo/Dna-Demo.pem ec2-user@54.229.247.127
+java -jar akka-ec2-assembly-0.1.0-SNAPSHOT.jar
+#+END_SRC
+*** Add a new node and repeat
+*** Shutdown the scaling group
+* Akka on Docker
+** Explore the application:
+*** [[file:playground/activator-akka-docker/src/main/scala/com/example/Main.scala][Main.scala]]
+*** Create the docker image
+#+BEGIN_SRC bash
+sbt docker:publishLocal
+#+END_SRC
+*** List image names and pick the right image
+#+BEGIN_SRC bash
+docker images
+#+END_SRC
+*** Start a first seed node and get the seed node ip
+#+BEGIN_SRC bash
+docker run --name seed-1 akka-docker:2.3.10 --seed
+docker exec -it seed-1 ip addr show
+#+END_SRC
+*** Start a second seed node using the address of the first one as a seed
+#+BEGIN_SRC bash
+docker run --name seed-2 akka-docker:2.3.10 --seed 172.17.0.2:2551
+docker exec -it seed-2 ip addr show
+#+END_SRC
+*** Start as many worker nodes as necessary
+#+BEGIN_SRC bash
+docker run --name node-1 akka-docker:2.3.10 172.17.0.2:2551 172.17.0.3:2551
+docker run --name node-2 akka-docker:2.3.10 172.17.0.2:2551 172.17.0.3:2551
+#+END_SRC
+*** Remove all the nodes
+#+BEGIN_SRC bash
+docker rm (docker ps -aq)
+#+END_SRC
+* Akka on Kubernetes
+** [[file:playground/akka-k8s/akka-simple-cluster-k8s/src/main/scala/com/softwaremill/akkaSimpleCluster/Main.scala][Main.scala]]
+** k8s
+*** [[file:playground/akka-k8s/akka-simple-cluster-k8s/k8s/simple-akka-cluster-deployment.yml][simple-akka-cluster-deployment.yml]]
+*** [[file:playground/akka-k8s/akka-simple-cluster-k8s/k8s/simple-akka-cluster-rbac.yml][simple-akka-cluster-rbac.yml]]
+*** [[file:playground/akka-k8s/akka-simple-cluster-k8s/k8s/simple-akka-cluster-service.yml][simple-akka-cluster-service.yml]]
+** Running the application on Minikube
+*** Start the minikube (Simulates a kuberenetes equipped cluster) and link to its docker engine
+#+BEGIN_SRC bash
+minikube start
+eval (minikube docker-env)
+#+END_SRC
+*** Publish the docker images to the minikube 
+#+BEGIN_SRC bash
+sbt docker:publishLocal
+docker images
+#+END_SRC
+*** Create a service account and role in kuberenetes
+#+BEGIN_SRC bash
+kubectl create -f k8s/simple-akka-cluster-rbac.yml
+#+END_SRC
+*** Create a deployment
+#+BEGIN_SRC bash
+kubectl create -f k8s/simple-akka-cluster-deployment.yml
+#+END_SRC
+*** Create a service
+#+BEGIN_SRC bash
+kubectl create -f k8s/simple-akka-cluster-service.yml
+#+END_SRC
+*** Open minikube's dashboard
+#+BEGIN_SRC bash
+minikube dashboard
+#+END_SRC
+*** Get the port of the akka http management API
+#+BEGIN_SRC bash
+MANAGEMENT_PORT=(kubectl get svc akka-simple-cluster -ojsonpath="{.spec.ports[?(@.name==\"management\")].nodePort}")
+curl http://(minikube ip):$MANAGEMENT_PORT/cluster/members | jq
+#+END_SRC
+* Replicated Data
+** CRDTs
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/SusbcriptionManager.scala][SubscriptionManager.scala]]
+*** [[file:playground/akka-cookbook/src/main/scala/io/github/gpetri/ch7/DistributedDataApplication.scala][DistributedDataApplication.scala]]
+*** 
+#+BEGIN_SRC bash
+sbt -Dconfig.resource=application-cluster-1.conf "runMain io.github.gpetri.ch7.DistributedDataApplication" 
+sbt -Dconfig.resource=application-cluster-2.conf "runMain io.github.gpetri.ch7.DistributedDataApplication" 
+#+END_SRC 
