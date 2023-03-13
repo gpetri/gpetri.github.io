@@ -1,0 +1,71 @@
+* Simple distributed store system (aka Distributed File System)
+** Day 1
+*** Part 1:
+   - Consider a simple store system with the following operations:
+     - Store(key, value) // we can assume that keys and values are strings
+     - Lookup(key)
+     - Delete(key)
+   - Provide a very simple implementation of the system based on an Key-Value HashTable
+     - Assume the user can issue these operations through the terminal
+     - Assume this service is entirely to be maintained in-memory
+   - Question:
+     - What happens when the user accidentally types an incorrect command?
+     - What happens if the user accidentally types Ctrl-c?
+*** Part 2:
+   - To improve on our simplistic design above, we will imagine that the server and the user-terminal run in different process
+     - Split the example above to
+       1) Implement the Key-value store on an independent actor
+       2) Implement the console reader on an independent actor
+     - Because these actors are still running on a single actor system, if the process is terminated, we still lose all data
+       - Don't worry about this for now, we are growing the architecture
+** Day 2:
+*** Part 1:
+   - To improve further on the design from yesterday, we will re-implement the storage
+   - We will implement a durable-actor which implements the key-value abstraction with an append-only file
+     - When the user stores an element, we append the (key, value) pair at the end of the file
+     - When the user deletes an element, we add a (key, deleted) marker at the end of the file
+     - When the user looks up a key, we traverse the file back to front to find the first non-deleted value, if any
+   - What happens if our server crashes now?
+     - Try crashing the server, and restarting it. Do we still have the objects?
+*** Part 2:
+   - Consider the complexity of a lookup operation, what are the the best and works case complexities
+   - As the file grows, the performance of traversing the whole log becomes a bottleneck
+     - To improve performance, we will, alongside the file, keep an in-memory key-value store
+     - Since the key-value store uses a lot of memory, we will implemented it in a different actor
+   - Consider the complexity of store and lookup operations with this new architecture
+   - Consider the durability of the new architecture
+** Day 3:
+*** Part 1:
+   - Suppose we have a lot of keys with large values, what bottlenecks can you imagine?
+     - Propose some solutions to the problem, propose architectural changes to the actor system to implement these solutions
+     - Simulate a slow centralized key-value store by adding a small delay before the system responds back
+   - Suppose we can have super-fast key-value stores, which can store at most 1000 keys
+     - How can we use these actors to improve overall performance of our system?
+     - Implement a caching actor
+       - If we had N caching actors, what performance improvements can we implement?
+*** Part 2:
+   - Implement a client program, that makes a large number of random requests to the storage service assume keys are 1-1000 (or equivalent)
+     - Populate the storage with values for keys from 1-500
+     - Pick an operation at random from store, delete, and lookup
+       - If the operation is a store or delete, make sure that the key picked is greater than 500
+       - If the operation is a lookup pick the last key looked-up 50% of the time
+         - If we have to look up a new key, bias the sampling towards the first 1-500
+   - Run the system against the version without the cache, and against the version with the cache
+     - What do you observe? Average a number of runs of this randomized client
+** Day 4:
+*** Part 1:
+   - While the design above is promising we still have the problem that with a single actor system, an error on the part of the client can crash the whole system
+   - To avoid this, make each of the actors (with the exception of caching actors) run on a separate actor system, and process
+     - This involves:
+       1) The storage logging actor is a single process
+       2) The centralized key-value store is a single process
+       3) The cache actors run in their own process
+       4) The client (or console) runs on an individual process (doesn't need to be an actor)
+     - To implement this, you will need to set up a cluster, so be mindful of port configurations
+*** Part 2:
+   - Consider the failure cases for each of these components
+     - What happens to the overall system if the component crashes
+     - What actions are necessary to bring the system back to operation
+** Day 5:
+*** Cloud
+   - Run the system on an Elastic Cloud Service on EC2
